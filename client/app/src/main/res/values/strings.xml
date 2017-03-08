@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ZUlicyWiesciApp</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Itaque hic ipse iam pridem est reiectus; Ita relinquet duas, de quibus etiam atque etiam consideret. Hosne igitur laudas et hanc eorum, inquam, sententiam sequi nos censes oportere? Cum audissem Antiochum, Brute, ut solebam, cum M.\n\nAt ille pellit, qui permulcet sensum voluptate. Ita enim vivunt quidam, ut eorum vita refellatur oratio. Contineo me ab exemplis. Non quaeritur autem quid naturae tuae consentaneum sit, sed quid disciplinae. Ac tamen hic mallet non dolere. Ita enim vivunt quidam, ut eorum vita refellatur oratio. Fortasse id optimum, sed ubi illud: Plus semper voluptatis?\n\nGerendus est mos, modo recte sentiat. Maximus dolor, inquit, brevis est.\n\nDuo Reges: constructio interrete. Murenam te accusante defenderem. Non quam nostram quidem, inquit Pomponius iocans; Non enim iam stirpis bonum quaeret, sed animalis. Nam illud vehementer repugnat, eundem beatum esse et multis malis oppressum. Nam, ut sint illa vendibiliora, haec uberiora certe sunt. Quod si ita se habeat, non possit beatam praestare vitam sapientia. Nemo nostrum istius generis asotos iucunde putat vivere. Ac tamen hic mallet non dolere. Sed emolumenta communia esse dicuntur, recte autem facta et peccata non habentur communia. At, illa, ut vobis placet, partem quandam tuetur, reliquam deserit.\n\nMihi enim erit isdem istis fortasse iam utendum. Inde sermone vario sex illa a Dipylo stadia confecimus. Cur ipse Pythagoras et Aegyptum lustravit et Persarum magos adiit? Sed quid sentiat, non videtis. Haec et tu ita posuisti, et verba vestra sunt.</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
