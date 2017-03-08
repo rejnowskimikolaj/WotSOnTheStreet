@@ -1,11 +1,15 @@
 package com.example.rent.zulicywiesciapp;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.rent.zulicywiesciapp.model.NewsItem;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -15,7 +19,13 @@ import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder> {
 
-    List<NewsPiece> newsList;
+    List<NewsItem> newsList;
+    Context context;
+
+    public NewsAdapter(List<NewsItem> newsList, Context context) {
+        this.newsList = newsList;
+        this.context = context;
+    }
 
     @Override
     public NewsItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -27,7 +37,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
     public void onBindViewHolder(NewsItemHolder holder, int position) {
 
 
-        //holder.newsItemTitleTextView.setText();
+        holder.titleTextView.setText(newsList.get(position).getTitle());
+        holder.concentTextView.setText(newsList.get(position).getContent());
+        Picasso.with(context)
+                .load(newsList.get(position).getUrl())
+                .fit()
+                .centerCrop()
+                .into(holder.imageView);
 
     }
 
@@ -38,15 +54,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
 
     public class NewsItemHolder extends RecyclerView.ViewHolder {
 
-        TextView newsItemTitleTextView;
-        TextView newsItemTextTextview;
-        ImageView newsItemImageView;
+        TextView titleTextView;
+        TextView concentTextView;
+        ImageView imageView;
 
         public NewsItemHolder(View itemView) {
             super(itemView);
-            newsItemImageView = (ImageView) itemView.findViewById(R.id.news_item_imageView);
-            newsItemTextTextview = (TextView) itemView.findViewById(R.id.news_item_text_textView);
-            newsItemTitleTextView = (TextView) itemView.findViewById(R.id.news_item_title_textView);
+            imageView = (ImageView) itemView.findViewById(R.id.news_item_imageView);
+            concentTextView = (TextView) itemView.findViewById(R.id.news_item_text_textView);
+            titleTextView = (TextView) itemView.findViewById(R.id.news_item_title_textView);
         }
     }
 }
