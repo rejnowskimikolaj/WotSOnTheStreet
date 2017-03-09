@@ -1,6 +1,7 @@
 package com.example.rent.zulicywiesciapp.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -23,7 +24,7 @@ public class FakeNewsListFactory {
 
         for(int i=1;i<=size;i++){
 
-            list.add(new NewsItem(getRandomTitle(),lorem,getRandomUrl()));
+            list.add(new NewsItem(1L, getRandomTitle(),lorem,1, "null", new Date(), getRandomUrl()));
 
         }
 

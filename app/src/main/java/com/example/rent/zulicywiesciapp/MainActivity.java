@@ -9,10 +9,19 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.example.rent.zulicywiesciapp.model.NewsItemList;
+import com.example.rent.zulicywiesciapp.retrofit.NewsApiClient;
+import com.example.rent.zulicywiesciapp.retrofit.NewsApiClientFactory;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class MainActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
+    NewsItemList newsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

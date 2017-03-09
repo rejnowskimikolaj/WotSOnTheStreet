@@ -41,7 +41,7 @@
                     android:contentDescription="@string/app_name"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/gray_photo_resized"
+                    android:src="@drawable/bg_image"
                     app:layout_collapseMode="parallax"
                     app:layout_collapseParallaxMultiplier="0.5" />
 

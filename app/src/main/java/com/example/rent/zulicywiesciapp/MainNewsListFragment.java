@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.rent.zulicywiesciapp.model.FakeNewsListFactory;
+import com.example.rent.zulicywiesciapp.retrofit.NewsWrapper;
 
 
 /**
@@ -39,12 +40,14 @@ public class MainNewsListFragment extends android.support.v4.app.Fragment {
     private void setUpWithFakeNews(){
 
         rootView.setHasFixedSize(false);
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        NewsAdapter adapter = new NewsAdapter(FakeNewsListFactory.getFakeNewsList(20),getContext());
-
+        NewsAdapter adapter = new NewsAdapter(getContext());
         rootView.setLayoutManager(layoutManager);
         rootView.setAdapter(adapter);
+
+        /* added by md */
+        NewsWrapper newsWrapper = new NewsWrapper(rootView, getContext());
+        newsWrapper.getNewsList();
 
     }
 }

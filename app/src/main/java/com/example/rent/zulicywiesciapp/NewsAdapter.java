@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,9 +23,21 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
     List<NewsItem> newsList;
     Context context;
 
+    /* added by md */
+    public NewsAdapter(Context context) {
+        newsList = new ArrayList<>();
+        this.context = context;
+    }
+
     public NewsAdapter(List<NewsItem> newsList, Context context) {
         this.newsList = newsList;
         this.context = context;
+    }
+
+    /* added by md */
+    public void setNewsList(List<NewsItem> newsList) {
+        this.newsList = newsList;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -40,7 +53,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
         holder.titleTextView.setText(newsList.get(position).getTitle());
         holder.concentTextView.setText(newsList.get(position).getContent());
         Picasso.with(context)
-                .load(newsList.get(position).getUrl())
+                .load(newsList.get(position).getImg_url())
                 .fit()
                 .centerCrop()
                 .into(holder.imageView);
