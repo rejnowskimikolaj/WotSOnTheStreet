@@ -39,7 +39,7 @@ public class ApiManager {
 
             @Override
             public void onFailure(Call<NewsItemList> call, Throwable t) {
-
+                Log.e("failure", String.valueOf(t.getCause()));
                 Log.d("API MANAGER", "onFailure: ");
             }
         });

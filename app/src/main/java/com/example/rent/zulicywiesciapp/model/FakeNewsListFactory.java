@@ -17,6 +17,11 @@ public class FakeNewsListFactory {
     };
     private final static String lorem ="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
     private final static String []titles = {"Omg this happened again!","New TwinPeaks season coming out","Scarlett Johannson has new boobs"};
+    private final static List<Category> categories = new ArrayList<>();
+    static {
+        categories.add(new Category(1,"Sport"));
+        categories.add(new Category(1,"Economy"));
+    }
 
     public static List<NewsItem> getFakeNewsList(int size){
 
@@ -24,7 +29,7 @@ public class FakeNewsListFactory {
 
         for(int i=1;i<=size;i++){
 
-            list.add(new NewsItem(1L, getRandomTitle(),lorem,1, "null", new Date(), getRandomUrl()));
+            list.add(new NewsItem(1L, getRandomTitle(),lorem,1, "null", new Date(), getRandomUrl(),categories));
 
         }
 
