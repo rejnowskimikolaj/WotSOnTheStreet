@@ -10,12 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import com.example.rent.zulicywiesciapp.model.NewsItemList;
-import com.example.rent.zulicywiesciapp.retrofit.NewsApiClient;
-import com.example.rent.zulicywiesciapp.retrofit.NewsApiClientFactory;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -59,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.main_activity_toolbar_menu, menu);
         return true;
     }
 

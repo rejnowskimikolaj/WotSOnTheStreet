@@ -22,15 +22,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
 
     List<NewsItem> newsList;
     Context context;
+    OnNewsListItemClickListener clickListener;
 
     /* added by md */
-    public NewsAdapter(Context context) {
+    public NewsAdapter(Context context,OnNewsListItemClickListener clickListener) {
         newsList = new ArrayList<>();
         this.context = context;
+        this.clickListener = clickListener;
     }
 
-    public NewsAdapter(List<NewsItem> newsList, Context context) {
+    public NewsAdapter(List<NewsItem> newsList, Context context,OnNewsListItemClickListener clickListener) {
         this.newsList = newsList;
+        this.clickListener = clickListener;
         this.context = context;
     }
 
@@ -49,14 +52,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
     @Override
     public void onBindViewHolder(NewsItemHolder holder, int position) {
 
-
-        holder.titleTextView.setText(newsList.get(position).getTitle());
-        holder.concentTextView.setText(newsList.get(position).getContent());
-        Picasso.with(context)
-                .load(newsList.get(position).getImg_url())
-                .fit()
-                .centerCrop()
-                .into(holder.imageView);
+        holder.newsItem = newsList.get(position);
+        holder.setViews();
 
     }
 
@@ -70,12 +67,36 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
         TextView titleTextView;
         TextView concentTextView;
         ImageView imageView;
+        NewsItem newsItem;
+
+        public void setViews(){
+
+            titleTextView.setText(newsItem.getTitle());
+            concentTextView.setText(newsItem.getContent());
+            Picasso.with(context)
+                    .load(newsItem.getImg_url())
+                    .fit()
+                    .centerCrop()
+                    .into(imageView);
+        }
 
         public NewsItemHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.news_item_imageView);
             concentTextView = (TextView) itemView.findViewById(R.id.news_item_text_textView);
             titleTextView = (TextView) itemView.findViewById(R.id.news_item_title_textView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    clickListener.OnNewsListItemClicked(newsItem);
+                }
+            });
+
         }
+    }
+
+    public interface OnNewsListItemClickListener{
+        void OnNewsListItemClicked(NewsItem newsItem);
     }
 }

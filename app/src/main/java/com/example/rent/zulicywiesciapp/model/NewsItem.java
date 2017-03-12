@@ -1,6 +1,7 @@
 package com.example.rent.zulicywiesciapp.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User on 2017-03-08.
@@ -11,11 +12,12 @@ public class NewsItem {
     private String title;
     private String content;
     private Integer priority;
-    private String author;
+    private Author author;
     private Date date;
     private String img_url;
+    private List<Category> categories;
 
-    public NewsItem(Long id, String title, String content, Integer priority, String author, Date date, String img_url) {
+    public NewsItem(Long id, String title, String content, Integer priority, Author author, Date date, String img_url) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -57,11 +59,11 @@ public class NewsItem {
         this.priority = priority;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
@@ -81,4 +83,11 @@ public class NewsItem {
         this.img_url = img_url;
     }
 
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 }
