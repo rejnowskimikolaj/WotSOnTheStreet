@@ -21,19 +21,19 @@ public interface NewsApiClient {
     Call<NewsItemList> getNewsList(@Query("sort") String sort);
 
     @GET("/api/news")
-    Call<NewsItem> getNewsItem(@Query("id") String id);
+    Call<NewsItem> getNewsItem(@Query("id") Integer id);
 
     @GET("/api/categories")
     Call<CategoryList> getCategoryList();
 
     @GET("/api/categories")
-    Call<Category> getCategory(@Query("id") String id);
+    Call<Category> getCategory(@Query("id") Integer id);
 
     @GET("/api/authors")
     Call<AuthorList> getAuthorList();
 
     @GET("/api/authors")
-    Call<Author> getAuthor(@Query("id") String id);
+    Call<Author> getAuthor(@Query("id") Integer id);
 
 
 }

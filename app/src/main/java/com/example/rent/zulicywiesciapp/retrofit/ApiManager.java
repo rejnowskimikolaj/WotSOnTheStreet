@@ -68,7 +68,7 @@ public class ApiManager {
 
     }
 
-    public static void getNewsItem(String id, final OnNewsItemFetchedListener listener) throws ApiConnectException {
+    public static void getNewsItem(Integer id, final OnNewsItemFetchedListener listener) throws ApiConnectException {
         newsApiClient.getNewsItem(id).enqueue(new Callback<NewsItem>() {
             @Override
             public void onResponse(Call<NewsItem> call, Response<NewsItem> response) {
@@ -87,7 +87,7 @@ public class ApiManager {
 
     }
 
-    public static void getCategory(String id, final OnCategoryFetchedListener listener) throws ApiConnectException {
+    public static void getCategory(Integer id, final OnCategoryFetchedListener listener) throws ApiConnectException {
         newsApiClient.getCategory(id).enqueue(new Callback<Category>() {
             @Override
             public void onResponse(Call<Category> call, Response<Category> response) {
@@ -125,7 +125,7 @@ public class ApiManager {
 
     }
 
-    public static void getAuthor(String id, final OnAuthorFetchedListener listener) throws ApiConnectException {
+    public static void getAuthor(Integer id, final OnAuthorFetchedListener listener) throws ApiConnectException {
         newsApiClient.getAuthor(id).enqueue(new Callback<Author>() {
             @Override
             public void onResponse(Call<Author> call, Response<Author> response) {
