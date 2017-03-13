@@ -41,6 +41,11 @@ public class ApiManager {
             public void onFailure(Call<NewsItemList> call, Throwable t) {
 
                 Log.d("API MANAGER", "onFailure: " + t.getMessage());
+                Log.d("API MANAGER", "onFailure: " + t.getCause());
+                Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
+
+
+
             }
         });
 
@@ -68,7 +73,7 @@ public class ApiManager {
 
     }
 
-    public static void getNewsItem(Integer id, final OnNewsItemFetchedListener listener) throws ApiConnectException {
+    public static void getNewsItem(Long id, final OnNewsItemFetchedListener listener) throws ApiConnectException {
         newsApiClient.getNewsItem(id).enqueue(new Callback<NewsItem>() {
             @Override
             public void onResponse(Call<NewsItem> call, Response<NewsItem> response) {

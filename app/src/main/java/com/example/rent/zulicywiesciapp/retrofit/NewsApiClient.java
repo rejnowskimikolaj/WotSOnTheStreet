@@ -21,7 +21,7 @@ public interface NewsApiClient {
     Call<NewsItemList> getNewsList(@Query("sort") String sort);
 
     @GET("/api/news")
-    Call<NewsItem> getNewsItem(@Query("id") Integer id);
+    Call<NewsItem> getNewsItem(@Query("id") Long id);
 
     @GET("/api/categories")
     Call<CategoryList> getCategoryList();

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.rent.zulicywiesciapp.model.FakeNewsListFactory;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
+import com.example.rent.zulicywiesciapp.model.Sort;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class MainNewsListFragment extends android.support.v4.app.Fragment implem
         ,NewsAdapter.OnNewsListItemClickListener{
 
     RecyclerView rootView;
+    public static final String NEWS_ID = "id";
     private NewsAdapter adapter;
 
 
@@ -66,6 +68,8 @@ public class MainNewsListFragment extends android.support.v4.app.Fragment implem
     @Override
     public void OnNewsListItemClicked(NewsItem newsItem) {
 
-        startActivity(new Intent(getActivity(),NewsItemActivity.class));
+        Intent newsItemActivity = new Intent(getActivity(),NewsItemActivity.class);
+        newsItemActivity.putExtra(NEWS_ID,newsItem.getId());
+        startActivity(newsItemActivity);
     }
 }

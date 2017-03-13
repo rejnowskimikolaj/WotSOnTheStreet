@@ -2,11 +2,37 @@ package com.example.rent.zulicywiesciapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class NewsItemActivity extends AppCompatActivity {
+import com.example.rent.zulicywiesciapp.model.NewsItem;
+import com.example.rent.zulicywiesciapp.retrofit.ApiConnectException;
+import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
+import com.squareup.picasso.Picasso;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class NewsItemActivity extends AppCompatActivity implements ApiManager.OnNewsItemFetchedListener {
+
+    private long newsId;
+    private NewsItem newsItem;
+    @BindView(R.id.activity_news_item_title)
+    AppCompatTextView title;
+    @BindView(R.id.activity_news_item_content)
+    AppCompatTextView content;
+    @BindView(R.id.activity_news_item_imageView)
+    ImageView imageView;
+    @BindView(R.id.activity_news_item_publ_author_text)
+    AppCompatTextView author;
+    @BindView(R.id.activity_news_item_publ_date_text)
+    AppCompatTextView date;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +43,14 @@ public class NewsItemActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.setNavigationIcon(R.drawable.ic_return);
+        ButterKnife.bind(this);
+
+        newsId = getIntent().getLongExtra(MainNewsListFragment.NEWS_ID,-1);
+        if(newsId!=-1) try {
+            ApiManager.getNewsItem(newsId,this);
+        } catch (ApiConnectException e) {
+            Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -34,5 +68,24 @@ public class NewsItemActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onNewsItemFetched(NewsItem news) {
+        newsItem = news;
+        setUpViewsWithNewsItem();
+
+    }
+
+    private void setUpViewsWithNewsItem(){
+        title.setText(newsItem.getTitle());
+        content.setText(newsItem.getContent());
+        Picasso.with(this)
+                .load(newsItem.getImg_url())
+                .fit()
+                .centerCrop()
+                .into(imageView);
+        author.setText(newsItem.getAuthor().getName()+" "+newsItem.getAuthor().getLastname());
+        date.setText("Published: "+newsItem.getDate());
     }
 }
