@@ -51,9 +51,9 @@ public class MainNewsListFragment extends android.support.v4.app.Fragment implem
 
 
 
-    private void setUpWithFakeNews() {
-        adapter.setNewsList(FakeNewsListFactory.getFakeNewsList(13));
-    }
+//    private void setUpWithFakeNews() {
+//        adapter.setNewsList(FakeNewsListFactory.getFakeNewsList(13));
+//    }
 
 
 

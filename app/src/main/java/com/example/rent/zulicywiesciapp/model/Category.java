@@ -1,10 +1,16 @@
 package com.example.rent.zulicywiesciapp.model;
 
 
+import android.support.annotation.Nullable;
+
+import java.util.List;
+
 public class Category {
 
     private Integer id;
     private String name;
+    @Nullable
+    private List<NewsItem> news;
 
 
     public Category(Integer id, String name) {
@@ -28,4 +34,20 @@ public class Category {
         this.name = name;
     }
 
+    @Nullable
+    public List<NewsItem> getNews() {
+        return news;
+    }
+
+    public void setNews(@Nullable List<NewsItem> news) {
+        this.news = news;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

@@ -90,4 +90,18 @@ public class NewsItem {
     public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
+
+    @Override
+    public String toString() {
+        return "NewsItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", priority=" + priority +
+                ", author=" + author +
+                ", date=" + date +
+                ", img_url='" + img_url + '\'' +
+                ", categories=" + categories +
+                '}';
+    }
 }

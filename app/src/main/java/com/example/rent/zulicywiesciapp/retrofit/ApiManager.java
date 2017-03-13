@@ -32,7 +32,7 @@ public class ApiManager {
                 if (response.isSuccessful()) {
 
                     List<NewsItem> list = response.body().getNews();
-                    Log.d("!!! API DATA", response.body().getNews().get(0).getTitle());
+                    Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onNewsFetched(list);
                 }
             }
@@ -54,7 +54,7 @@ public class ApiManager {
                 if (response.isSuccessful()) {
 
                     List<NewsItem> list = response.body().getNews();
-                    Log.d("!!! API DATA", response.body().getNews().get(0).getTitle());
+                    Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onNewsFetched(list);
                 }
             }
@@ -68,12 +68,14 @@ public class ApiManager {
 
     }
 
-    public void getNewsItem(String id, final OnNewsItemFetchedListener listener) throws ApiConnectException {
+    public static void getNewsItem(String id, final OnNewsItemFetchedListener listener) throws ApiConnectException {
         newsApiClient.getNewsItem(id).enqueue(new Callback<NewsItem>() {
             @Override
             public void onResponse(Call<NewsItem> call, Response<NewsItem> response) {
                 if (response.isSuccessful()) {
+                    Log.d("!!! API DATA", response.body().toString());
                     listener.onNewsItemFetched(response.body());
+
                 }
             }
 
@@ -85,12 +87,14 @@ public class ApiManager {
 
     }
 
-    public void getCategory(String id, final OnCategoryFetchedListener listener) throws ApiConnectException {
+    public static void getCategory(String id, final OnCategoryFetchedListener listener) throws ApiConnectException {
         newsApiClient.getCategory(id).enqueue(new Callback<Category>() {
             @Override
             public void onResponse(Call<Category> call, Response<Category> response) {
                 if(response.isSuccessful()) {
+                    Log.d("!!! API DATA", response.body().toString());
                     listener.onCategoryFetched(response.body());
+
                 }
             }
 
@@ -102,12 +106,14 @@ public class ApiManager {
 
     }
 
-    public void getCategoryList(final OnCategoryListFetchedListener listener) throws ApiConnectException {
+    public static void getCategoryList(final OnCategoryListFetchedListener listener) throws ApiConnectException {
         newsApiClient.getCategoryList().enqueue(new Callback<CategoryList>() {
             @Override
             public void onResponse(Call<CategoryList> call, Response<CategoryList> response) {
                 if(response.isSuccessful()) {
+                    Log.d("!!! API DATA", response.body().getCategories().get(0).toString());
                     listener.onCategoryListFetched(response.body().getCategories());
+
                 }
             }
 
@@ -119,12 +125,14 @@ public class ApiManager {
 
     }
 
-    public void getAuthor(String id, final OnAuthorFetchedListener listener) throws ApiConnectException {
+    public static void getAuthor(String id, final OnAuthorFetchedListener listener) throws ApiConnectException {
         newsApiClient.getAuthor(id).enqueue(new Callback<Author>() {
             @Override
             public void onResponse(Call<Author> call, Response<Author> response) {
                 if(response.isSuccessful()) {
+                    Log.d("!!! API DATA", response.body().toString());
                     listener.onAuthorFetched(response.body());
+
                 }
             }
 
@@ -136,11 +144,12 @@ public class ApiManager {
 
     }
 
-    public void getAuthorList(final OnAuthorListFetchedListener listener) throws ApiConnectException {
+    public static void getAuthorList(final OnAuthorListFetchedListener listener) throws ApiConnectException {
         newsApiClient.getAuthorList().enqueue(new Callback<AuthorList>() {
             @Override
             public void onResponse(Call<AuthorList> call, Response<AuthorList> response) {
                 if(response.isSuccessful()) {
+                    Log.d("!!! API DATA", response.body().getAuthors().get(0).toString());
                     listener.onAuthorListFetched(response.body().getAuthors());
                 }
             }
