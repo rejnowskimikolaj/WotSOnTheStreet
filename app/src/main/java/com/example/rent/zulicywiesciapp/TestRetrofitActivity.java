@@ -26,7 +26,7 @@ public class TestRetrofitActivity extends AppCompatActivity implements ApiManage
         setContentView(R.layout.activity_test_retrofit);
         ButterKnife.bind(this);
         try {
-            ApiManager.getAuthor(""+2, this);
+            ApiManager.getAuthor(2, this);
         } catch (ApiConnectException e) {
             Log.d("!!! ApiConnect ", e.getMessage());
         }
