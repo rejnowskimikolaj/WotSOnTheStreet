@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:title="@string/nav_category_categories">
+        <menu>
+            <item
+                android:id="@+id/nav_money"
+                android:icon="@drawable/ic_money"
+                android:title="@string/money" />
+            <item
+                android:id="@+id/nav_sport"
+                android:icon="@drawable/ic_bicycle"
+                android:title="@string/sports" />
+            <item
+                android:id="@+id/nav_art"
+                android:icon="@drawable/ic_brush"
+                android:title="@string/art" />
+            <item
+            android:id="@+id/nav_politics"
+            android:icon="@drawable/ic_sad"
+            android:title="@string/politics" />
+            <item
+                android:id="@+id/nav_technology"
+                android:icon="@drawable/ic_laptop"
+                android:title="@string/technology" />
+        </menu>
+    </item>
 
 </menu>

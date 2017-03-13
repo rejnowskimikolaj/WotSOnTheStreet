@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewsItemActivity" />
-        <activity android:name=".TestRetrofitActivity"></activity>
+        <activity android:name=".TestRetrofitActivity" />
+        <activity android:name=".CategoryNewsListActivity"></activity>
     </application>
 
 </manifest>

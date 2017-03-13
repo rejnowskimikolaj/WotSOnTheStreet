@@ -15,6 +15,9 @@ import com.example.rent.zulicywiesciapp.retrofit.ApiConnectException;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -86,6 +89,7 @@ public class NewsItemActivity extends AppCompatActivity implements ApiManager.On
                 .centerCrop()
                 .into(imageView);
         author.setText(newsItem.getAuthor().getName()+" "+newsItem.getAuthor().getLastname());
-        date.setText("Published: "+newsItem.getDate());
+        String weekDay =new SimpleDateFormat("EEEE", Locale.US).format(newsItem.getDate());
+        date.setText("Published: "+weekDay);
     }
 }
