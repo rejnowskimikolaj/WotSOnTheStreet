@@ -2,76 +2,40 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\RENT\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="C:\Users\RENT\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\pre-dexed\debug\okio-1.8.0_8c76e604ae39e68f61a4c00fc0f936460e5c1434.jar" />
+        sha1="93b3ed440eac2410e90bea78bd8180e6b098cf5f">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_56e609aed8b8d98cbafac51d61d648667647ae2a\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\RENT\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="C:\Users\RENT\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\pre-dexed\debug\gson-2.7_279589ab1522691e66cf86c4748e5789f78e976c.jar" />
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_0ecddc67daf3b71dfaf32fa950e974c980b36aef\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\RENT\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\c20f4af252b25579a02a2098c6e159dc0664982d\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
-        <dex dex="C:\Users\RENT\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\pre-dexed\debug\retrofit-2.1.0_ac61e44f6582c6e2d138b20de429654bc380f67f.jar" />
+        sha1="d20672631818754557255886d3feb43e7fe75a66">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bd760e92eb3308be3fcd0c1dca433e758579402c\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\RENT\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\User\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0\constraint-layout-solver-1.0.0.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
-        <dex dex="C:\Users\RENT\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\pre-dexed\debug\converter-gson-2.1.0_e18d78f5ecc853e4e1dfa548fb16900dfa884573.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\RENT\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.0\2b802460eea20f8f2ad9c08c74e0f14718e88aa9\okhttp-3.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
-        <dex dex="C:\Users\RENT\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\pre-dexed\debug\okhttp-3.3.0_c349ac2513c49cfe00e4dfbc81cde4cd7982b285.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\RENT\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="C:\Users\RENT\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_4c1f4edfebf0fddc166870634879a01347f01597.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\RENT\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.5.0\e0743a5ca3710001cb3edf7727399fcad083457b\butterknife-annotations-8.5.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e0743a5ca3710001cb3edf7727399fcad083457b">
-        <dex dex="C:\Users\RENT\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\pre-dexed\debug\butterknife-annotations-8.5.0_6d7e9f8bdb0c38f1c33861e09e1cab9fdf2fe064.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\RENT\.android\build-cache\e593c37df388cd17b77f5fe1cd38761419382328\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="19f281a785ca0eb5f6799fc7bf7ca199a9ca1e8b">
-        <dex dex="C:\Users\RENT\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\pre-dexed\debug\classes_d2312dbc17e74e0e3d7d506392a1cc50cd7058d8.jar" />
+        sha1="90493f2ea15ff3f57416368123e5d4d180e0c6fd">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.0_bf1363dca0e7fca925ece64c7714a20dda143792\classes.dex" />
     </item>
 
 </items>

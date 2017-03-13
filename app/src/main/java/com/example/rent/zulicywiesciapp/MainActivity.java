@@ -14,13 +14,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.rent.zulicywiesciapp.model.Categories;
 import com.example.rent.zulicywiesciapp.model.NewsItemList;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
-    NewsItemList newsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.activity_main_tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
 
     }
@@ -77,8 +80,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent categoryActivity = new Intent(this,CategoryNewsListActivity.class);
-        categoryActivity.putExtra(CategoryNewsListActivity.CATEGORY_TO_LIST,1);
+        int categoryId=-1;
+
+        int itemIdid = item.getItemId();
+
+        switch (itemIdid) {
+            case R.id.nav_art:
+                categoryId= Categories.ART.getId();
+                break;
+            case R.id.nav_money:
+                categoryId= Categories.MONEY.getId();
+                break;
+            case R.id.nav_politics:
+                categoryId= Categories.POLITICS.getId();
+                break;
+            case R.id.nav_technology:
+                categoryId= Categories.TECHNOLOGY.getId();
+                break;
+            case R.id.nav_sport:
+                categoryId= Categories.SPORT.getId();
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+        categoryActivity.putExtra(CategoryNewsListActivity.CATEGORY_TO_LIST,categoryId);
         startActivity(categoryActivity);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

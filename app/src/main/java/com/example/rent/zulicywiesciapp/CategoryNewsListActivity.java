@@ -35,6 +35,7 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+
         int categoryId = getIntent().getIntExtra(CATEGORY_TO_LIST,-1);
         if(categoryId!=-1){
             try {
