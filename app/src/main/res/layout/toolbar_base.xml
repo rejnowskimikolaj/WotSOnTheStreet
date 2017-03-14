@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View android:layout_width="match_parent"
+    android:id="@+id/toolbar_base"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="86dp"
+    android:fitsSystemWindows="true"
+    app:layout_collapseMode="parallax"
+    app:layout_collapseParallaxMultiplier="0.5"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

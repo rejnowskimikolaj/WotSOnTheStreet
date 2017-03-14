@@ -33,15 +33,7 @@
                 app:expandedTitleMarginStart="48dp"
                 app:layout_scrollFlags="scroll|enterAlways">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="86dp"
-                    android:contentDescription="@string/app_name"
-                    android:fitsSystemWindows="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/gray_photo_resized"
-                    app:layout_collapseMode="parallax"
-                    app:layout_collapseParallaxMultiplier="0.5" />
+                <include layout="@layout/toolbar_base"/>
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/activity_category_news_list_main_toolbar"

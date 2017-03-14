@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.rent.zulicywiesciapp.model.Categories;
@@ -20,6 +21,7 @@ import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
 import com.example.rent.zulicywiesciapp.retrofit.ApiConnectException;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
+import com.example.rent.zulicywiesciapp.utils.CategoryUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,16 +44,20 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
     @BindView((R.id.activity_category_news_list_main_toolbar))
     Toolbar toolbar;
 
+    @BindView(R.id.toolbar_base)
+    View toolbarBase;
+    private int categoryId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_news_list);
 
+        categoryId = getIntent().getIntExtra(CATEGORY_TO_LIST,-1);
         setViews();
-
-        int categoryId = getIntent().getIntExtra(CATEGORY_TO_LIST,-1);
-        if(categoryId!=-1){
+        
+        if(categoryId !=-1){
             try {
                 ApiManager.getCategory(categoryId,this);
             } catch (ApiConnectException e) {
@@ -90,6 +96,7 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
     private void setToolbar(){
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbarBase.setBackgroundColor(CategoryUtil.getIdOfColorFromCategoryId(categoryId,this));
     }
 
     @Override
