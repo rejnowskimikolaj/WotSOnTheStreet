@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="listedNewsItemBackgroundColor">#ffffff</color>
+    <color name="dividerColor">#b6b6b6</color>
     <color name="colorPrimary">#838383</color>
     <color name="colorPrimaryDark">#404148</color>
     <color name="colorAccent">#FF4081</color>
     <color name="contentTextColor">#8C000000</color>
     <color name="titleTextColor">#D9000000</color>
+    <color name="sportCategory">#d9000383</color>
+    <color name="artCategory">#d97002b9</color>
+    <color name="economicsCategory">#d9007b14</color>
+    <color name="technologyCategory">#d9878787</color>
+    <color name="politicsCategory">#d9ab0000</color>
+
 
 
 </resources>

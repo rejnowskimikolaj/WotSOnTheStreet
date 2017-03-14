@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rent.zulicywiesciapp.model.NewsItem;
+import com.example.rent.zulicywiesciapp.utils.CategoryUtil;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -44,8 +45,22 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return newsList.get(position).getPriority();
+    }
+
+    @Override
     public NewsItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listed_small_news_item, parent, false);
+
+        View view;
+        if(viewType==1) {
+             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listed_small_news_item, parent, false);
+        }
+        else {
+             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listed_big_news_item, parent, false);
+
+        }
+
         return new NewsItemHolder(view);
     }
 
@@ -53,6 +68,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
     public void onBindViewHolder(NewsItemHolder holder, int position) {
 
         holder.newsItem = newsList.get(position);
+        if(newsList.size()-1==position) holder.isLast=true;
         holder.setViews();
 
     }
@@ -68,6 +84,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
         TextView concentTextView;
         ImageView imageView;
         NewsItem newsItem;
+        View divider;
+        boolean isLast=false;
 
         public void setViews(){
 
@@ -78,6 +96,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
                     .fit()
                     .centerCrop()
                     .into(imageView);
+            if(isLast) divider.setVisibility(View.INVISIBLE);
+            setDividerColor();
+
+        }
+
+        private void setDividerColor(){
+            divider.setBackgroundColor(CategoryUtil.getIdOfColorFromCategoryId(newsItem.getCategories().get(0).getId(),context));
         }
 
         public NewsItemHolder(View itemView) {
@@ -85,7 +110,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
             imageView = (ImageView) itemView.findViewById(R.id.listed_news_item_imageView);
             concentTextView = (TextView) itemView.findViewById(R.id.listed_news_item_content);
             titleTextView = (TextView) itemView.findViewById(R.id.listed_news_item_title);
-
+            divider = itemView.findViewById(R.id.news_divider);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        navigationView.setItemIconTintList(null);
 
     }
 
@@ -94,8 +94,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_art:
                 categoryId= Categories.ART.getId();
                 break;
-            case R.id.nav_money:
-                categoryId= Categories.MONEY.getId();
+            case R.id.nav_economics:
+                categoryId= Categories.ECONOMICS.getId();
                 break;
             case R.id.nav_politics:
                 categoryId= Categories.POLITICS.getId();

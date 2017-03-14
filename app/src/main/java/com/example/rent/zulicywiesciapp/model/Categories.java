@@ -8,7 +8,7 @@ public enum Categories {
 
     POLITICS(1),
     SPORT(2),
-    MONEY(3),
+    ECONOMICS(3),
     ART(4),
     TECHNOLOGY(5);
 

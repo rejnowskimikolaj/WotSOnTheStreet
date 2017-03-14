@@ -76,7 +76,9 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
     }
+
     private void setRecyclerView(){
         recyclerView.setHasFixedSize(false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -127,8 +129,8 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
             case R.id.nav_art:
                 categoryId= Categories.ART.getId();
                 break;
-            case R.id.nav_money:
-                categoryId= Categories.MONEY.getId();
+            case R.id.nav_economics:
+                categoryId= Categories.ECONOMICS.getId();
                 break;
             case R.id.nav_politics:
                 categoryId= Categories.POLITICS.getId();
