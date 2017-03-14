@@ -6,5 +6,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_category_categories">Categories</string>
+    <string name="Money">Money</string>
+    <string name="money">Money</string>
+    <string name="sports">Sports</string>
+    <string name="art">Art</string>
+    <string name="politics">Politics</string>
+    <string name="technology">Technology</string>
+    <string name="home">Home</string>
 
 </resources>

@@ -1,7 +1,10 @@
 package com.example.rent.zulicywiesciapp;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,13 +14,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.rent.zulicywiesciapp.model.Categories;
 import com.example.rent.zulicywiesciapp.model.NewsItemList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
-    NewsItemList newsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.activity_main_tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
 
     }
@@ -68,5 +74,50 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int itemIdid = item.getItemId();
+        drawerLayout.closeDrawer(GravityCompat.START);
+        if(itemIdid==R.id.nav_home){
+            startActivity(new Intent(this,MainActivity.class));
+            return true;
+        }
+
+        Intent categoryActivity = new Intent(this,CategoryNewsListActivity.class);
+        int categoryId=-1;
+
+
+        switch (itemIdid) {
+            case R.id.nav_art:
+                categoryId= Categories.ART.getId();
+                break;
+            case R.id.nav_money:
+                categoryId= Categories.MONEY.getId();
+                break;
+            case R.id.nav_politics:
+                categoryId= Categories.POLITICS.getId();
+                break;
+            case R.id.nav_technology:
+                categoryId= Categories.TECHNOLOGY.getId();
+                break;
+            case R.id.nav_sport:
+                categoryId= Categories.SPORT.getId();
+        }
+
+        categoryActivity.putExtra(CategoryNewsListActivity.CATEGORY_TO_LIST,categoryId);
+        startActivity(categoryActivity);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
