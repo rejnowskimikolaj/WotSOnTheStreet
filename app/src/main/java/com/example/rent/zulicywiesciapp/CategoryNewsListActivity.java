@@ -2,6 +2,7 @@ package com.example.rent.zulicywiesciapp;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rent.zulicywiesciapp.model.Categories;
@@ -41,8 +43,14 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
     @BindView(R.id.activity_category_news_list_drawer_layout)
     DrawerLayout drawerLayout;
 
-    @BindView((R.id.activity_category_news_list_main_toolbar))
+    @BindView((R.id.toolbar))
     Toolbar toolbar;
+
+    @BindView((R.id.app_bar_layout))
+    AppBarLayout appBarLayout;
+
+    @BindView((R.id.toolbar_title))
+    TextView title;
 
 //
     private int categoryId;
@@ -94,8 +102,9 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
 
     private void setToolbar(){
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setBackgroundColor(CategoryUtil.getIdOfColorFromCategoryId(categoryId,this));
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        appBarLayout.setBackgroundColor(CategoryUtil.getIdOfColorFromCategoryId(categoryId,this));
+        title.setText(CategoryUtil.getCategoryNameFromId(categoryId));
     }
 
     @Override

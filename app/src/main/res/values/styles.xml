@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="ArticleContentStyle" parent="@android:style/TextAppearance">
         <item name="android:textSize">21sp</item>
         <item name="android:textColor">@color/contentTextColor</item>
@@ -21,10 +22,17 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/contentTextColor</item>
     </style>
+
     <style name="ListedArticleTitleStyle" parent="@android:style/TextAppearance">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">21sp</item>
         <item name="android:textColor">@color/titleTextColor</item>
+    </style>
+
+    <style name="toolbarTitleStyle" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/toolbarTitleColor</item>
     </style>
 
 </resources>

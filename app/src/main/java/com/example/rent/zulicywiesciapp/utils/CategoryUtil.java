@@ -38,4 +38,26 @@ public class CategoryUtil {
         return colorId;
     }
 
+    public static String getCategoryNameFromId(int id){
+        String category = "";
+        switch (id){
+            case POLITICS:
+                category="Politics";
+                break;
+            case SPORT:
+                category="Sport";
+                break;
+            case ECONOMICS:
+                category="Economics";
+                break;
+            case ART:
+                category="Art";
+                break;
+            case TECHNOLOGY:
+                category="Technology";
+        }
+
+        return category;
+    }
+
 }
