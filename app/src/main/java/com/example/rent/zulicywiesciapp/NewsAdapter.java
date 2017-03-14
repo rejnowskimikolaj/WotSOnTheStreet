@@ -24,6 +24,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
     List<NewsItem> newsList;
     Context context;
     OnNewsListItemClickListener clickListener;
+    public static final int FIRST_ON_PAGE=4;
 
     /* added by md */
     public NewsAdapter(Context context,OnNewsListItemClickListener clickListener) {
@@ -46,6 +47,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
 
     @Override
     public int getItemViewType(int position) {
+        if(position==0) return FIRST_ON_PAGE;
         return newsList.get(position).getPriority();
     }
 
@@ -53,7 +55,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
     public NewsItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view;
-        if(viewType==1) {
+        if(viewType==FIRST_ON_PAGE){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listed_first_on_page_news_item, parent, false);
+
+        }
+        else if(viewType==1) {
              view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listed_small_news_item, parent, false);
         }
         else {

@@ -44,8 +44,7 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
     @BindView((R.id.activity_category_news_list_main_toolbar))
     Toolbar toolbar;
 
-    @BindView(R.id.toolbar_base)
-    View toolbarBase;
+//
     private int categoryId;
 
 
@@ -96,7 +95,7 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
     private void setToolbar(){
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbarBase.setBackgroundColor(CategoryUtil.getIdOfColorFromCategoryId(categoryId,this));
+        toolbar.setBackgroundColor(CategoryUtil.getIdOfColorFromCategoryId(categoryId,this));
     }
 
     @Override
