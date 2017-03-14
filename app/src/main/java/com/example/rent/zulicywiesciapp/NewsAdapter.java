@@ -45,7 +45,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
 
     @Override
     public NewsItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listed_small_news_item, parent, false);
         return new NewsItemHolder(view);
     }
 
@@ -82,9 +82,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
 
         public NewsItemHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.news_item_imageView);
-            concentTextView = (TextView) itemView.findViewById(R.id.news_item_text_textView);
-            titleTextView = (TextView) itemView.findViewById(R.id.news_item_title_textView);
+            imageView = (ImageView) itemView.findViewById(R.id.listed_news_item_imageView);
+            concentTextView = (TextView) itemView.findViewById(R.id.listed_news_item_content);
+            titleTextView = (TextView) itemView.findViewById(R.id.listed_news_item_title);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

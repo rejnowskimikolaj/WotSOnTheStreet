@@ -60,8 +60,8 @@
                 android:id="@+id/activity_main_tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabGravity="fill"
                 android:layout_gravity="bottom"
+                app:tabGravity="fill"
                 app:tabMode="fixed" />
 
         </android.support.design.widget.AppBarLayout>
@@ -75,12 +75,6 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
-    <android.support.design.widget.NavigationView
-        android:paddingTop="8dp"
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:menu="@menu/activity_drawer" />
+    <include layout="@layout/navigation_view" />
+
 </android.support.v4.widget.DrawerLayout>

@@ -13,5 +13,6 @@
     <string name="art">Art</string>
     <string name="politics">Politics</string>
     <string name="technology">Technology</string>
+    <string name="home">Home</string>
 
 </resources>

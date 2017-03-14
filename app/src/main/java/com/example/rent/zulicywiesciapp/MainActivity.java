@@ -79,10 +79,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int itemIdid = item.getItemId();
+        drawerLayout.closeDrawer(GravityCompat.START);
+        if(itemIdid==R.id.nav_home){
+            startActivity(new Intent(this,MainActivity.class));
+            return true;
+        }
+
         Intent categoryActivity = new Intent(this,CategoryNewsListActivity.class);
         int categoryId=-1;
 
-        int itemIdid = item.getItemId();
 
         switch (itemIdid) {
             case R.id.nav_art:
@@ -101,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 categoryId= Categories.SPORT.getId();
         }
 
-        drawerLayout.closeDrawer(GravityCompat.START);
         categoryActivity.putExtra(CategoryNewsListActivity.CATEGORY_TO_LIST,categoryId);
         startActivity(categoryActivity);
         return true;
