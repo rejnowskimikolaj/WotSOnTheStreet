@@ -47,7 +47,7 @@ public class MainNewsListFragment extends android.support.v4.app.Fragment implem
         rootView.setLayoutManager(layoutManager);
         rootView.setAdapter(adapter);
 
-        ApiManager.fetchNews(this);
+        ApiManager.fetchNews(Sort.PRIORITY_DESC,this);
         return root;
     }
 
