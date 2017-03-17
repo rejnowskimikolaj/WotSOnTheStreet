@@ -27,6 +27,8 @@ public class NewsItem {
         this.img_url = img_url;
     }
 
+
+
     public Long getId() {
         return id;
     }
