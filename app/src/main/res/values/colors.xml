@@ -7,6 +7,7 @@
     <color name="contentTextColor">#8C000000</color>
     <color name="titleTextColor">#D9000000</color>
     <color name="sportCategory">#d9000383</color>
+    <color name="savedNewsCategory">#d9e9ab00</color>
     <color name="artCategory">#d97002b9</color>
     <color name="economicsCategory">#d9007b14</color>
     <color name="technologyCategory">#d9878787</color>

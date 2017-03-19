@@ -10,7 +10,9 @@ public enum Categories {
     SPORT(2),
     ECONOMICS(3),
     ART(4),
-    TECHNOLOGY(5);
+    TECHNOLOGY(5),
+    SAVED_NEWS(6);
+
 
     private int id;
     private Categories(int id){

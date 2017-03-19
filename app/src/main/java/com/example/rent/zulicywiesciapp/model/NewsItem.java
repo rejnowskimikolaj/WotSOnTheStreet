@@ -27,7 +27,16 @@ public class NewsItem {
         this.img_url = img_url;
     }
 
-
+    public NewsItem(Long id, String title, String content, Integer priority, Author author, Date date, String img_url, List<Category> categories) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.priority = priority;
+        this.author = author;
+        this.date = date;
+        this.img_url = img_url;
+        this.categories = categories;
+    }
 
     public Long getId() {
         return id;

@@ -16,6 +16,9 @@ public class CategoryUtil {
     public static final int ECONOMICS = 3;
     public static final int ART = 4;
     public static final int TECHNOLOGY = 5;
+    public static final int SAVED_NEWS = 6;
+
+
 
     public static int getIdOfColorFromCategoryId(int idOfCategory,Context context){
 
@@ -31,6 +34,8 @@ public class CategoryUtil {
             case ART: colorId=ContextCompat.getColor(context, R.color.artCategory);
                 break;
             case TECHNOLOGY: colorId=ContextCompat.getColor(context, R.color.technologyCategory);
+                break;
+            case SAVED_NEWS: colorId=ContextCompat.getColor(context, R.color.savedNewsCategory);
                 break;
 
         }
@@ -55,6 +60,9 @@ public class CategoryUtil {
                 break;
             case TECHNOLOGY:
                 category="Technology";
+                break;
+            case SAVED_NEWS:
+                category="Saved News";
         }
 
         return category;

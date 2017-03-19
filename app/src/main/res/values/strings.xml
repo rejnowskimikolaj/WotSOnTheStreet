@@ -15,5 +15,9 @@
     <string name="technology">Technology</string>
     <string name="home">Home</string>
     <string name="economics">Economics</string>
+    <string name="download">download</string>
+    <string name="share">share</string>
+    <string name="offline">offline</string>
+    <string name="db_checkbox_text">read it later</string>
 
 </resources>

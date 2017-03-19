@@ -25,6 +25,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
     Context context;
     OnNewsListItemClickListener clickListener;
     public static final int FIRST_ON_PAGE=4;
+    public static final int MAX_CONTENT_LENGTH=100;
 
     /* added by md */
     public NewsAdapter(Context context,OnNewsListItemClickListener clickListener) {
@@ -96,13 +97,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
         public void setViews(){
 
             titleTextView.setText(newsItem.getTitle());
-            concentTextView.setText(newsItem.getContent());
+            concentTextView.setText(newsItem.getContent().substring(0,MAX_CONTENT_LENGTH));
             Picasso.with(context)
                     .load(newsItem.getImg_url())
                     .fit()
                     .centerCrop()
                     .into(imageView);
-            if(isLast) divider.setVisibility(View.INVISIBLE);
+           // if(isLast) divider.setVisibility(View.INVISIBLE);
             setDividerColor();
 
         }

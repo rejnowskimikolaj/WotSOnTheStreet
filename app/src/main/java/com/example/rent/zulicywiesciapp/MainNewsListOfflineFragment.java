@@ -14,11 +14,17 @@ import android.view.ViewGroup;
 import com.example.rent.zulicywiesciapp.NewsAdapter;
 import com.example.rent.zulicywiesciapp.NewsItemActivity;
 import com.example.rent.zulicywiesciapp.R;
+import com.example.rent.zulicywiesciapp.local.db.DbHelper;
+import com.example.rent.zulicywiesciapp.local.db.NewsItemEntity;
 import com.example.rent.zulicywiesciapp.model.FakeNewsListFactory;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
 import com.example.rent.zulicywiesciapp.model.Sort;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
+import com.example.rent.zulicywiesciapp.utils.EntityConverter;
+import com.j256.ormlite.dao.Dao;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,6 +33,10 @@ public class MainNewsListOfflineFragment extends android.support.v4.app.Fragment
     RecyclerView rootView;
     public static final String NEWS_ID = "id";
     private NewsAdapter adapter;
+    Dao<NewsItemEntity,Long> dao;
+    DbHelper dbHelper;
+
+
 
 
     public MainNewsListOfflineFragment() {
@@ -45,12 +55,40 @@ public class MainNewsListOfflineFragment extends android.support.v4.app.Fragment
         adapter = new NewsAdapter(getContext(),this);
         rootView.setLayoutManager(layoutManager);
         rootView.setAdapter(adapter);
+        dbHelper = new DbHelper(getActivity().getApplicationContext());
 
-        setUpWithFakeNews();
+        dao = dbHelper.getNewsDao();
 
         return root;
     }
 
+    private void setUpWithOfflineNews() {
+        adapter.setNewsList(getNewsList());
+    }
+
+    private List<NewsItem> getNewsList() {
+        List<NewsItemEntity> entities = getNewsFromDb();
+        List<NewsItem> newsList = new ArrayList<>();
+        for(NewsItemEntity entity: entities){
+
+            newsList.add(EntityConverter.getNewsItemFromEntity(entity));
+        }
+
+        return newsList;
+    }
+
+
+    private List<NewsItemEntity> getNewsFromDb(){
+
+        List<NewsItemEntity> list = new ArrayList<>();
+        try {
+            list = dao.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
 
 
     private void setUpWithFakeNews() {
@@ -58,14 +96,18 @@ public class MainNewsListOfflineFragment extends android.support.v4.app.Fragment
     }
 
 
-
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        setUpWithOfflineNews();
+    }
 
     @Override
     public void OnNewsListItemClicked(NewsItem newsItem) {
 
         Intent newsItemActivity = new Intent(getActivity(),NewsItemActivity.class);
         newsItemActivity.putExtra(NEWS_ID,newsItem.getId());
+        newsItemActivity.putExtra(NewsItemActivity.SOURCE,NewsItemActivity.NEWS_FROM_LOCAL_DB);
         startActivity(newsItemActivity);
     }
 }

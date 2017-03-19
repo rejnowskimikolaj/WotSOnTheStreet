@@ -70,6 +70,7 @@ public class MainNewsListFragment extends android.support.v4.app.Fragment implem
 
         Intent newsItemActivity = new Intent(getActivity(),NewsItemActivity.class);
         newsItemActivity.putExtra(NEWS_ID,newsItem.getId());
+        newsItemActivity.putExtra(NewsItemActivity.SOURCE,NewsItemActivity.NEWS_FROM_FEED);
         startActivity(newsItemActivity);
     }
 }

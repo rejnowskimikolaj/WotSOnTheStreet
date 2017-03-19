@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MainNewsListFragment(), "Online");
         adapter.addFragment(new MainNewsListOfflineFragment(), "Saved articles");
-        adapter.addFragment(new MainNewsListFragment(), "Empty");
         viewPager.setAdapter(adapter);
     }
 
