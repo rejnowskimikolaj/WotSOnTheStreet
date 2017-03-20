@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -50,7 +51,8 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
     AppBarLayout appBarLayout;
 
     @BindView((R.id.toolbar_title))
-    TextView title;
+    AppCompatTextView toolbarTitle;
+
 
 //
     private int categoryId;
@@ -102,9 +104,8 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
 
     private void setToolbar(){
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
         appBarLayout.setBackgroundColor(CategoryUtil.getIdOfColorFromCategoryId(categoryId,this));
-        title.setText(CategoryUtil.getCategoryNameFromId(categoryId));
+        toolbarTitle.setText(CategoryUtil.getCategoryNameFromId(categoryId));
     }
 
     @Override
