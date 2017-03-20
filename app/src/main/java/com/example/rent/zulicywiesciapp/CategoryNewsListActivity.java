@@ -125,6 +125,7 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
 
         Intent newsItemActivity = new Intent(this,NewsItemActivity.class);
         newsItemActivity.putExtra(NEWS_ID,newsItem.getId());
+        newsItemActivity.putExtra(NewsItemActivity.SOURCE,NewsItemActivity.NEWS_FROM_FEED);
         startActivity(newsItemActivity);
     }
 

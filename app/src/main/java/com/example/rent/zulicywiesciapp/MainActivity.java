@@ -1,7 +1,9 @@
 package com.example.rent.zulicywiesciapp;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,30 +20,56 @@ import android.view.MenuItem;
 import com.example.rent.zulicywiesciapp.model.Categories;
 import com.example.rent.zulicywiesciapp.model.NewsItemList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
+
+    @BindView((R.id.toolbar))
+    Toolbar toolbar;
+
+    @BindView((R.id.toolbar_title))
+    AppCompatTextView toolbarTitle;
+
+    @BindView(R.id.activity_main_viewPager)
+    ViewPager viewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ButterKnife.bind(this);
+        setToolbar();
+        setTabsAndNavigationView();
+        setupViewPager();
+
+
+    }
+
+    private void setToolbar(){
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-        //getSupportActionBar().setTitle("siema");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Deutschlander.otf");
+        toolbarTitle.setTypeface(custom_font);
+        toolbarTitle.setTextSize(40);
+    }
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+    private void setTabsAndNavigationView(){
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_open, R.string.nav_close);
         drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.activity_main_viewPager);
+
         if (viewPager != null) {
-            setupViewPager(viewPager);
+            setupViewPager();
         }
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.activity_main_tabLayout);
@@ -51,8 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setItemIconTintList(null);
 
     }
-
-    private void setupViewPager(ViewPager viewPager) {
+    private void setupViewPager() {
 
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MainNewsListFragment(), "Online");

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="dividerColor">#b6b6b6</color>
-    <color name="colorPrimary">#d7d7d7</color>
+    <color name="colorPrimary">#878787</color>
     <color name="colorSecondary">#5b5b5b</color>
     <color name="colorPrimaryDark">#404148</color>
     <color name="colorAccent">#FF4081</color>
@@ -14,8 +14,7 @@
     <color name="technologyCategory">#d9878787</color>
     <color name="politicsCategory">#d9ab0000</color>
     <color name="toolbarTitleColor">#ffffff</color>
-
-
+    <color name="icons_color"> #ffffff</color>
 
 
 </resources>
