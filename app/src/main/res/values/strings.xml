@@ -20,6 +20,10 @@
     <string name="download">download</string>
     <string name="share">share</string>
     <string name="offline">offline</string>
-    <string name="db_checkbox_text">read it later</string>
+    <string name="db_checkbox_text">save it for later</string>
+    <string name="saved_toast">smart move!</string>
+    <string name="deleted_toast">fine! :/</string>
+
+
 
 </resources>

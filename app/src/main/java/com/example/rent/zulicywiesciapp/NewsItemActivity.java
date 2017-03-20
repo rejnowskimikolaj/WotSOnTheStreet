@@ -120,7 +120,7 @@ public class NewsItemActivity extends AppCompatActivity implements ApiManager.On
     private void deleteFromDatabase() {
         try {
             dao.delete(EntityConverter.getNewsEntityFromNewsItem(newsItem));
-            Toast.makeText(this,"Deleted.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.deleted_toast,Toast.LENGTH_SHORT).show();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -130,7 +130,7 @@ public class NewsItemActivity extends AppCompatActivity implements ApiManager.On
 
         try {
             dao.createOrUpdate(EntityConverter.getNewsEntityFromNewsItem(newsItem));
-            Toast.makeText(this,"Now you can read it later :)",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.saved_toast,Toast.LENGTH_SHORT).show();
 
         } catch (SQLException e) {
             e.printStackTrace();
