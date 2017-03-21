@@ -97,7 +97,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
         public void setViews(){
 
             titleTextView.setText(newsItem.getTitle());
-            concentTextView.setText(newsItem.getContent().substring(0,MAX_CONTENT_LENGTH));
+            if(newsItem.getContent().length() > 100) {
+                concentTextView.setText(newsItem.getContent().substring(0,MAX_CONTENT_LENGTH));
+            } else {
+                concentTextView.setText(newsItem.getContent());
+            }
             Picasso.with(context)
                     .load(newsItem.getImg_url())
                     .fit()

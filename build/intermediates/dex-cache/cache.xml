@@ -3,39 +3,57 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="50f46a0ac324e27957552f0933d4add79f40b556">
-        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_56e609aed8b8d98cbafac51d61d648667647ae2a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_0ecddc67daf3b71dfaf32fa950e974c980b36aef\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\User\.android\build-cache\c20f4af252b25579a02a2098c6e159dc0664982d\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d20672631818754557255886d3feb43e7fe75a66">
-        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bd760e92eb3308be3fcd0c1dca433e758579402c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\User\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0\constraint-layout-solver-1.0.0.jar"
+        jar="/home/md/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0/constraint-layout-solver-1.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="90493f2ea15ff3f57416368123e5d4d180e0c6fd">
-        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.0_bf1363dca0e7fca925ece64c7714a20dda143792\classes.dex" />
+        <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.0_8b44360c23b39cdc91ad3bc53a98488c0cb6e4f1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_12df46158489ec4cd8632782c63e092fd9065f3d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/md/.android/build-cache/00841f3b389e9cd2ee9b83dbf7aa287b8ed78f18/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d20672631818754557255886d3feb43e7fe75a66">
+        <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0730c1b72ca64ebeef4bb86127348eca8d53d836/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/md/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-android/4.48/afa06f539a4026c10b247386312aa67404b80a16/ormlite-android-4.48.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16">
+        <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/ormlite-android-4.48_2d46ad1f46dcc9c6c0a04077a43a593b293ca449/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/md/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-core/4.48/e579bd2905d0399af5029aaaf9817d5fa0ca88a5/ormlite-core-4.48.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5">
+        <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/ormlite-core-4.48_49f2f7917d3cac5af7ebe59a2cc04ff544e3e184/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="badd9e7b259e69ddfbec38ed3b86a3e6fb1da767">
+        <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_891a6b42f57ee54a3c9a67edd5fb944bb56735bd/classes.dex" />
     </item>
 
 </items>

@@ -23,6 +23,7 @@ import retrofit2.Response;
 public class ApiManager {
 
     private static NewsApiClient newsApiClient = new NewsApiClientFactory().create();
+    private static String HTTP_IMG_DIR = "http://news.dweb.pl/resources/uploads/";
 
     public static void fetchNews(final OnNewsFetchedListener listener) {
 
@@ -32,6 +33,14 @@ public class ApiManager {
                 if (response.isSuccessful()) {
 
                     List<NewsItem> list = response.body().getNews();
+                    for(NewsItem n : list) {
+                        Log.e("---!!! URL IMG ", n.getImg_url().substring(0, 6));
+                        if(!(n.getImg_url().substring(0, 6).equals("http://"))) {
+                            n.setImg_url(HTTP_IMG_DIR + n.getImg_url());
+                            Log.e("---!!! NEW URL IMG ", n.getImg_url());
+
+                        }
+                    }
                     Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onNewsFetched(list);
                 }
@@ -59,6 +68,14 @@ public class ApiManager {
                 if (response.isSuccessful()) {
 
                     List<NewsItem> list = response.body().getNews();
+                    for(NewsItem n : list) {
+                        Log.e("---!!! URL IMG ", n.getImg_url().substring(0, 7));
+                        if(!(n.getImg_url().substring(0, 7).equals("http://"))) {
+                            n.setImg_url(HTTP_IMG_DIR + n.getImg_url());
+                            Log.e("---!!! NEW URL IMG ", n.getImg_url());
+
+                        }
+                    }
                     Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onNewsFetched(list);
                 }
@@ -67,7 +84,7 @@ public class ApiManager {
             @Override
             public void onFailure(Call<NewsItemList> call, Throwable t) {
 
-                Log.d("API MANAGER", "onFailure: " + t.getMessage());
+                Log.e("API MANAGER", "onFailure: " + t.getMessage());
             }
         });
 
@@ -79,7 +96,11 @@ public class ApiManager {
             public void onResponse(Call<NewsItem> call, Response<NewsItem> response) {
                 if (response.isSuccessful()) {
                     Log.d("!!! API DATA", response.body().toString());
-                    listener.onNewsItemFetched(response.body());
+                    NewsItem newsItem = response.body();
+                    if(!(newsItem.getImg_url().substring(0, 6).equals("http://"))) {
+                        newsItem.setImg_url(HTTP_IMG_DIR + newsItem.getImg_url());
+                    }
+                    listener.onNewsItemFetched(newsItem);
 
                 }
             }
@@ -98,6 +119,16 @@ public class ApiManager {
             public void onResponse(Call<Category> call, Response<Category> response) {
                 if(response.isSuccessful()) {
                     Log.d("!!! API DATA", response.body().toString());
+                    List<NewsItem> list = response.body().getNews();
+                    for(NewsItem n : list) {
+                        Log.e("---!!! URL IMG ", n.getImg_url().substring(0, 7));
+                        if(!(n.getImg_url().substring(0, 7).equals("http://"))) {
+                            n.setImg_url(HTTP_IMG_DIR + n.getImg_url());
+                            Log.e("---!!! URL IMG ", n.getImg_url());
+
+                        }
+                    }
+                    Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onCategoryFetched(response.body());
 
                 }
