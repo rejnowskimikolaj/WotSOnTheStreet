@@ -14,7 +14,7 @@
     </style>
 
     <style name="ArticleTitleStyle" parent="@android:style/TextAppearance">
-        <item name="android:textSize">42sp</item>
+        <item name="android:textSize">34sp</item>
         <item name="android:textColor">@color/titleTextColor</item>
     </style>
 
@@ -25,7 +25,7 @@
 
     <style name="ListedArticleTitleStyle" parent="@android:style/TextAppearance">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">21sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textColor">@color/titleTextColor</item>
     </style>
 
