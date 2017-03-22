@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".NewsItemActivity" />
         <activity android:name=".TestRetrofitActivity" />
-        <activity android:name=".CategoryNewsListActivity"></activity>
+        <activity android:name=".CategoryNewsListActivity" />
+        <activity android:name=".CapsuleActivity"></activity>
     </application>
 
 </manifest>
