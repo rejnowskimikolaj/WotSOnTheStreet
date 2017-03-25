@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.rent.zulicywiesciapp.local.db.DbHelper;
 import com.example.rent.zulicywiesciapp.local.db.NewsItemEntity;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
-import com.example.rent.zulicywiesciapp.retrofit.ApiConnectException;
+import com.example.rent.zulicywiesciapp.exceptions.ApiConnectException;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 import com.example.rent.zulicywiesciapp.utils.EntityConverter;
 import com.j256.ormlite.dao.Dao;

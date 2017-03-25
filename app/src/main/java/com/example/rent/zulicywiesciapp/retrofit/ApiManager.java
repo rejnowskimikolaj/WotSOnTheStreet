@@ -2,19 +2,31 @@ package com.example.rent.zulicywiesciapp.retrofit;
 
 import android.util.Log;
 
+import com.example.rent.zulicywiesciapp.exceptions.ApiConnectException;
+import com.example.rent.zulicywiesciapp.exceptions.NoUserException;
+import com.example.rent.zulicywiesciapp.exceptions.WrongPasswordException;
 import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.AuthorList;
 import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.CategoryList;
+import com.example.rent.zulicywiesciapp.model.Login;
+import com.example.rent.zulicywiesciapp.model.LoginResponse;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
 import com.example.rent.zulicywiesciapp.model.NewsItemList;
+import com.example.rent.zulicywiesciapp.model.Register;
 import com.example.rent.zulicywiesciapp.model.Sort;
+import com.example.rent.zulicywiesciapp.model.Status;
+import com.example.rent.zulicywiesciapp.model.User;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.rent.zulicywiesciapp.model.Status.*;
 
 /**
  * Created by md on 3/9/17.
@@ -24,6 +36,57 @@ public class ApiManager {
 
     private static NewsApiClient newsApiClient = new NewsApiClientFactory().create();
     private static String HTTP_IMG_DIR = "http://news.dweb.pl/resources/uploads/";
+
+    public static void login(final Login login, final OnLoginListener listener) {
+        Gson gson = new GsonBuilder().create();
+        String json = gson.toJson(login);
+        System.out.println(json);
+        newsApiClient.login(login).enqueue(new Callback<LoginResponse>() {
+
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                System.out.println("code:" + response.code() + " msg: " + response.message());
+                if(response.isSuccessful()) {
+                    System.out.println(response.body().getStatus());
+                   listener.onLogin(response.body());
+                } else {
+                    listener.onLogin(new LoginResponse(ERROR, null));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Log.d("API MANAGER", "onFailure: " + t.getMessage());
+                Log.d("API MANAGER", "onFailure: " + t.getCause());
+                Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
+            }
+        });
+    }
+
+    public static void register(final Register register, final OnLoginListener listener) {
+        Gson gson = new GsonBuilder().create();
+        String json = gson.toJson(register);
+        System.out.println(json);
+       newsApiClient.register(register).enqueue(new Callback<LoginResponse>() {
+           @Override
+           public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+               System.out.println("code:" + response.code() + " msg: " + response.message());
+               if(response.isSuccessful()) {
+                   System.out.println(response.body().getStatus());
+                   listener.onLogin(response.body());
+               } else {
+                   listener.onLogin(new LoginResponse(ERROR, null));
+               }
+           }
+
+           @Override
+           public void onFailure(Call<LoginResponse> call, Throwable t) {
+               Log.d("API MANAGER", "onFailure: " + t.getMessage());
+               Log.d("API MANAGER", "onFailure: " + t.getCause());
+               Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
+           }
+       });
+    }
 
     public static void fetchNews(final OnNewsFetchedListener listener) {
 
@@ -222,5 +285,9 @@ public class ApiManager {
 
     public interface OnAuthorListFetchedListener {
         void onAuthorListFetched(List<Author> authors);
+    }
+
+    public interface OnLoginListener {
+        void onLogin(LoginResponse response);
     }
 }

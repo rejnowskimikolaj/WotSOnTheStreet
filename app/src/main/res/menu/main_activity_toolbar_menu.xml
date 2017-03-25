@@ -12,5 +12,8 @@
     <item android:id="@+id/action_settings"
         android:title="settings"
         app:showAsAction="never"/>
+    <item android:id="@+id/test"
+        android:title="test"
+        app:showAsAction="never"/>
 
 </menu>
