@@ -7,17 +7,12 @@ package com.example.rent.zulicywiesciapp.model;
 public class AddNewsResponse {
     private Status status;
     private Integer id;
-    private String name;
 
     public AddNewsResponse(Status status, Integer id) {
         this.status = status;
         this.id = id;
     }
 
-    public AddNewsResponse(Status status, String name) {
-        this.status = status;
-        this.name = name;
-    }
 
     public Status getStatus() {
         return status;
@@ -35,11 +30,5 @@ public class AddNewsResponse {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }
