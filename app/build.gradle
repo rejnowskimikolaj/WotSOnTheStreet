@@ -38,6 +38,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.0'
     compile 'com.j256.ormlite:ormlite-core:4.48'
+    compile group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: '3.3.0'
 
     compile 'com.j256.ormlite:ormlite-android:4.48'
 }

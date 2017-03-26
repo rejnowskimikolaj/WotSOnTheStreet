@@ -56,7 +56,6 @@ public class ApiManager {
 
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                System.out.println("code:" + response.code() + " msg: " + response.message());
                 if(response.isSuccessful()) {
                     System.out.println(response.body().getStatus());
                    listener.onLogin(response.body());
@@ -77,11 +76,9 @@ public class ApiManager {
     public static void register(final Register register, final OnLoginListener listener) {
         Gson gson = new GsonBuilder().create();
         String json = gson.toJson(register);
-        System.out.println(json);
        newsApiClient.register(register).enqueue(new Callback<LoginResponse>() {
            @Override
            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-               System.out.println("code:" + response.code() + " msg: " + response.message());
                if(response.isSuccessful()) {
                    System.out.println(response.body().getStatus());
                    listener.onLogin(response.body());
@@ -99,45 +96,20 @@ public class ApiManager {
        });
     }
 
-    public static void addNews(String token, final AddNewsDTO addNewsDTO, final OnNewsAddedListener listener) {
+
+    public static void addNews(String token, AddNewsDTO newsDTO, final OnNewsAddedListener listener) {
+
+        File file = new File(newsDTO.getImagePath());
         Gson gson = new GsonBuilder().create();
-        String json = gson.toJson(addNewsDTO);
-        System.out.println(json);
-        newsApiClient.addNews(token, addNewsDTO).enqueue(new Callback<AddNewsResponse>() {
-            @Override
-            public void onResponse(Call<AddNewsResponse> call, Response<AddNewsResponse> response) {
-                if(response.isSuccessful()) {
-                    listener.onNewsAdded(response.body());
-                } else {
-                    listener.onNewsAdded(new AddNewsResponse(ERROR, -1));
-                }
-            }
+        String news = gson.toJson(newsDTO);
 
-            @Override
-            public void onFailure(Call<AddNewsResponse> call, Throwable t) {
-
-                Log.d("API MANAGER", "onFailure: " + t.getMessage());
-                Log.d("API MANAGER", "onFailure: " + t.getCause());
-                Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
-
-            }
-        });
-    }
-
-    public static void addNewsImg(String token, String description, String path, Context context, final OnNewsAddedListener listener) {
-        System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! path: " + path);
-        File file = new File(path);
-        System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! name: " + file.getName());
-
-        RequestBody descriptionPart = RequestBody.create(MultipartBody.FORM, description);
-        RequestBody filePart = RequestBody.create(MediaType.parse("image/jpeg"), file);
-        MultipartBody.Part uploadFile = MultipartBody.Part.create(filePart);
+        RequestBody newsPart = RequestBody.create(MultipartBody.FORM, news);
+        RequestBody filePart = RequestBody.create(MediaType.parse("image/*"), file);
+        MultipartBody.Part uploadFile = MultipartBody.Part.createFormData("file", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
         System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! multipartfile " + uploadFile.toString());
-
-        newsApiClient.upload(descriptionPart, uploadFile).enqueue(new Callback<AddNewsResponse>() {
+        newsApiClient.upload(token, newsPart, uploadFile).enqueue(new Callback<AddNewsResponse>() {
             @Override
             public void onResponse(Call<AddNewsResponse> call, Response<AddNewsResponse> response) {
-                System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! code: " + response.code());
                 if (response.isSuccessful()) {
                     listener.onNewsAdded(response.body());
                 } else {
@@ -147,6 +119,9 @@ public class ApiManager {
 
             @Override
             public void onFailure(Call<AddNewsResponse> call, Throwable t) {
+
+                System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! failed: " + t.getMessage());
+                t.printStackTrace();
 
             }
         });

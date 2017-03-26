@@ -57,6 +57,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/md/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.3.0/ba14d8b7789efde5ee150eacb297b7237abca39/logging-interceptor-3.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0ba14d8b7789efde5ee150eacb297b7237abca39">
+        <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/logging-interceptor-3.3.0_92a62f56e38e495bbf6fa14202c77976c8b3c0a1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/md/.android/build-cache/fcd497f1aeaefefb3032a6be2e67318dee63bdb2/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"

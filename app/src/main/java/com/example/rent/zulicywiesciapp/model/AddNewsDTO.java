@@ -10,11 +10,20 @@ public class AddNewsDTO {
     private String title;
     private String content;
     private Integer priority;
+    private String imagePath;
     private List<Integer> categories;
 
     public AddNewsDTO(String title, String content, Integer priority, List<Integer> categories) {
         this.title = title;
         this.content = content;
+        this.priority = priority;
+        this.categories = categories;
+    }
+
+    public AddNewsDTO(String title, String content, Integer priority, String imagePath, List<Integer> categories) {
+        this.title = title;
+        this.content = content;
+        this.imagePath = imagePath;
         this.priority = priority;
         this.categories = categories;
     }
@@ -49,5 +58,13 @@ public class AddNewsDTO {
 
     public void setCategories(List<Integer> categories) {
         this.categories = categories;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

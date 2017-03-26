@@ -64,7 +64,8 @@ public interface NewsApiClient {
     @Multipart
     @POST("/api/upload")
     Call<AddNewsResponse> upload(
-            @Part("description") RequestBody description,
+            @Header("Token") String token,
+            @Part("news") RequestBody news,
             @Part MultipartBody.Part image
     );
 
