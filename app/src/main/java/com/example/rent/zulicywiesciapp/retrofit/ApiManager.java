@@ -1,10 +1,15 @@
 package com.example.rent.zulicywiesciapp.retrofit;
 
+import android.content.Context;
+import android.media.Image;
+import android.net.Uri;
 import android.util.Log;
 
 import com.example.rent.zulicywiesciapp.exceptions.ApiConnectException;
 import com.example.rent.zulicywiesciapp.exceptions.NoUserException;
 import com.example.rent.zulicywiesciapp.exceptions.WrongPasswordException;
+import com.example.rent.zulicywiesciapp.model.AddNewsDTO;
+import com.example.rent.zulicywiesciapp.model.AddNewsResponse;
 import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.AuthorList;
 import com.example.rent.zulicywiesciapp.model.Category;
@@ -20,8 +25,14 @@ import com.example.rent.zulicywiesciapp.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -88,6 +99,59 @@ public class ApiManager {
        });
     }
 
+    public static void addNews(String token, final AddNewsDTO addNewsDTO, final OnNewsAddedListener listener) {
+        Gson gson = new GsonBuilder().create();
+        String json = gson.toJson(addNewsDTO);
+        System.out.println(json);
+        newsApiClient.addNews(token, addNewsDTO).enqueue(new Callback<AddNewsResponse>() {
+            @Override
+            public void onResponse(Call<AddNewsResponse> call, Response<AddNewsResponse> response) {
+                if(response.isSuccessful()) {
+                    listener.onNewsAdded(response.body());
+                } else {
+                    listener.onNewsAdded(new AddNewsResponse(ERROR, -1));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AddNewsResponse> call, Throwable t) {
+
+                Log.d("API MANAGER", "onFailure: " + t.getMessage());
+                Log.d("API MANAGER", "onFailure: " + t.getCause());
+                Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
+
+            }
+        });
+    }
+
+    public static void addNewsImg(String token, String description, String path, Context context, final OnNewsAddedListener listener) {
+        System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! path: " + path);
+        File file = new File(path);
+        System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! name: " + file.getName());
+
+        RequestBody descriptionPart = RequestBody.create(MultipartBody.FORM, description);
+        RequestBody filePart = RequestBody.create(MediaType.parse("image/jpeg"), file);
+        MultipartBody.Part uploadFile = MultipartBody.Part.create(filePart);
+        System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! multipartfile " + uploadFile.toString());
+
+        newsApiClient.upload(descriptionPart, uploadFile).enqueue(new Callback<AddNewsResponse>() {
+            @Override
+            public void onResponse(Call<AddNewsResponse> call, Response<AddNewsResponse> response) {
+                System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! code: " + response.code());
+                if (response.isSuccessful()) {
+                    listener.onNewsAdded(response.body());
+                } else {
+                    listener.onNewsAdded(new AddNewsResponse(ERROR, response.message()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AddNewsResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
     public static void fetchNews(final OnNewsFetchedListener listener) {
 
         newsApiClient.getNewsList().enqueue(new Callback<NewsItemList>() {
@@ -132,10 +196,8 @@ public class ApiManager {
 
                     List<NewsItem> list = response.body().getNews();
                     for(NewsItem n : list) {
-                        Log.e("---!!! URL IMG ", n.getImg_url().substring(0, 7));
-                        if(!(n.getImg_url().substring(0, 7).equals("http://"))) {
+                        if(n.getImg_url() != null && !(n.getImg_url().substring(0, 7).equals("http://"))) {
                             n.setImg_url(HTTP_IMG_DIR + n.getImg_url());
-                            Log.e("---!!! NEW URL IMG ", n.getImg_url());
 
                         }
                     }
@@ -289,5 +351,9 @@ public class ApiManager {
 
     public interface OnLoginListener {
         void onLogin(LoginResponse response);
+    }
+
+    public interface OnNewsAddedListener {
+        void onNewsAdded(AddNewsResponse response);
     }
 }

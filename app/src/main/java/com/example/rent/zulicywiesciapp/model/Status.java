@@ -9,6 +9,7 @@ public enum Status {
     NO_USER,
     WRONG_PASSWORD,
     ERROR,
-    LOGIN_UNAVAILABLE;
+    LOGIN_UNAVAILABLE,
+    UNAUTHORISED;
 }
 

@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="17f8e0df2b7bf3507ea8619050dbb1eff096e6b8">
+        sha1="8e881ac803838e9d50ce66ec3e6b184acfafe082">
         <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_891a6b42f57ee54a3c9a67edd5fb944bb56735bd/classes.dex" />
     </item>
     <item
@@ -126,6 +126,15 @@
         revision="25.0.2"
         sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
         <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_58c73dc83d84a17271c3c30287b13948612dea84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/opt/android-studio/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="/home/md/2103/ZUlicyWiesciApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/commons-io-2.4_903097326c585ffbfceccce27d1c923b16154ba6/classes.dex" />
     </item>
 
 </items>
