@@ -12,6 +12,96 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\be2f9521a914a86976e0f4f6ada46f4273bbb80e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_48550a68e71797a238cf9492ab05fa20e4a85f5d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\7bcd70c0faab6dc6e1ec9342c18dfe638feb3522\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_083b1e7c4c0bffaf84eb090a86cf066474242255\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\116a78d92e8d77bd3a824ee9084c72b70182ef9f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2ad1f89240d54c6571db15b1eb87f34a9afb057d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.0\support-annotations-25.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.0_5332d3e34c73af542f3996cc40d38ffd44617327\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\9e4039ad25f0d5fd2b9db24e03252f75fea73c36\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4d1a194596d6cae9b3b545da14ff0aeaa7b6cdf6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\e9acc47f16387f9667467bff20d019662ac775b7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ee44a12e9b11d598bc0c760174cba2928396179b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\5d4eee1be681e09ec077e9638e24095e84b64a66\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c5d103b270b3f3b50d8e6b44aa8e068b0de33426">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_164919aeafadf660482d674ddaf83304d77bf9b0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\6427c379d955d27ffd5e4e2cb9372eb929f775a3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1a3c3e9c068c74c8f100bb00fd1bfef4cea885f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\ee04a511b96d01b49a2f9549e3989abd1703b657\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ee561a32ea81d22377f00a1b5d3964d3caf49ed5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\8257bdd1372c743f8d0c9a92f0eb694da2160cd7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_870e0c5b2cfd82d76ebd2bf96667fdf79c4f022d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Program Files\Android\Android Studio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar"
         jumboMode="true"
         optimize="true"
@@ -25,8 +115,44 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="45f29f2a3cfa4bc02bb10e3c46e17738c4d5ff10">
+        sha1="41bc61c84049e73f3a1a4b680ff252e8b6c2e43e">
         <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_56e609aed8b8d98cbafac51d61d648667647ae2a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\cc1dce5e98d4b477a8578399b2cdf775c5bf4751\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f47b1d4124f308183bf345f959c62348e449c5ac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\f9055cb5bc9c0665c4066a9e25fedc18aa6fea49\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9ea81c45a5d7e824e6dc583a3a37b6b739431619\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\75df5cf444f2dd99589b4c08162546f394acef1f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_849a6b31410eea36b57d5e08bbe4211ee8c96124\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\8ba6287e9dfb8a25dd52bb045e7eff8f3c5e7721\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="C:\Users\User\AndroidStudioProjects\ZUlicyWiesciApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_534d37ddfc3982a03bbc1c1cb4be4cf90a2f6755\classes.dex" />
     </item>
     <item
         is-multidex="true"

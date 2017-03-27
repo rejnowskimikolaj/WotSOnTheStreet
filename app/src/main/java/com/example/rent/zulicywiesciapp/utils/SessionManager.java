@@ -1,5 +1,7 @@
 package com.example.rent.zulicywiesciapp.utils;
 
+import com.example.rent.zulicywiesciapp.model.User;
+
 /**
  * Created by User on 2017-03-27.
  */
@@ -7,7 +9,7 @@ package com.example.rent.zulicywiesciapp.utils;
 public class SessionManager {
 
     private static SessionManager ourInstance = new SessionManager();
-    private String token;
+    private User user;
 
     public static SessionManager getInstance() {
         return ourInstance;
@@ -16,21 +18,13 @@ public class SessionManager {
     private SessionManager() {
     }
 
-    public  String getToken() {
-        return token;
+    public  User getUser() {
+        return user;
     }
 
-    public  void setToken(String token) {
-        token = token;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-
-    public void register(String token) {
-        this.token=token;
-    }
-
-    public void logIn(String token) {
-        this.token=token;
-    }
 
 }

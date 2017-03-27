@@ -1,5 +1,6 @@
 package com.example.rent.zulicywiesciapp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
@@ -44,6 +45,9 @@ public class CapsuleActivity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_capsule);
 
         setViews();
+
+        startActivity(new Intent(this,LoginActivity.class));
+        finish();
     }
 
 

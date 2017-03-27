@@ -119,7 +119,7 @@ public class TestRetrofitActivity extends AppCompatActivity implements ApiManage
     public void onLogin(LoginResponse response) {
         if(response.getStatus().equals(Status.OK)){
             u = response.getUser();
-            testField.setText("login completed");
+            testField.setText("loginInput completed");
         } else {
             testField.setText(response.getStatus().toString());
         }

@@ -28,8 +28,9 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="email">E-mail</string>
-
-
+    <string name="empty_login_error">Login cannot be empty</string>
+    <string name="empty_password_error">Password cannot be empty</string>
+    <string name="server_problem">Server encountered a problem</string>
 
 
 </resources>

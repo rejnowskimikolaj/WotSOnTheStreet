@@ -23,7 +23,9 @@
         <activity android:name=".TestRetrofitActivity" />
         <activity android:name=".CategoryNewsListActivity" />
         <activity android:name=".CapsuleActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustResize"
+            />
     </application>
 
 </manifest>
