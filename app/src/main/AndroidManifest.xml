@@ -3,8 +3,8 @@
     package="com.example.rent.zulicywiesciapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +21,9 @@
         </activity>
         <activity android:name=".NewsItemActivity" />
         <activity android:name=".TestRetrofitActivity" />
-        <activity android:name=".CategoryNewsListActivity"></activity>
+        <activity android:name=".CategoryNewsListActivity" />
+        <activity android:name=".CapsuleActivity" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>

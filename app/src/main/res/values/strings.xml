@@ -23,6 +23,12 @@
     <string name="db_checkbox_text">save it for later</string>
     <string name="saved_toast">smart move!</string>
     <string name="deleted_toast">fine! :/</string>
+    <string name="nav_capsule">Capsule</string>
+    <string name="capsule">Capsule</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">E-mail</string>
+
 
 
 

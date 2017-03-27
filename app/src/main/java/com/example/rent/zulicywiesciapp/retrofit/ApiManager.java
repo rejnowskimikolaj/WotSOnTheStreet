@@ -113,7 +113,7 @@ public class ApiManager {
                 if (response.isSuccessful()) {
                     listener.onNewsAdded(response.body());
                 } else {
-                    listener.onNewsAdded(new AddNewsResponse(ERROR, response.message()));
+                   // listener.onNewsAdded(new AddNewsResponse(ERROR, response.message()));
                 }
             }
 
