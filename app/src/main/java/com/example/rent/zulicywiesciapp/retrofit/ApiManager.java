@@ -10,6 +10,7 @@ import com.example.rent.zulicywiesciapp.exceptions.NoUserException;
 import com.example.rent.zulicywiesciapp.exceptions.WrongPasswordException;
 import com.example.rent.zulicywiesciapp.model.AddNewsDTO;
 import com.example.rent.zulicywiesciapp.model.AddNewsResponse;
+import com.example.rent.zulicywiesciapp.model.AuthResponse;
 import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.AuthorList;
 import com.example.rent.zulicywiesciapp.model.Category;
@@ -113,7 +114,7 @@ public class ApiManager {
                 if (response.isSuccessful()) {
                     listener.onNewsAdded(response.body());
                 } else {
-                    listener.onNewsAdded(new AddNewsResponse(ERROR, response.message()));
+                    listener.onNewsAdded(new AddNewsResponse(ERROR, null));
                 }
             }
 
@@ -125,6 +126,25 @@ public class ApiManager {
 
             }
         });
+    }
+
+    public static void checkAuth(String token, final OnAuthCheckListener listener) {
+
+        newsApiClient.checkAuth(token).enqueue(new Callback<AuthResponse>() {
+            @Override
+            public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+                listener.onAuthCheck(response.body().isStatus());
+            }
+
+            @Override
+            public void onFailure(Call<AuthResponse> call, Throwable t) {
+                Log.d("API MANAGER", "onFailure: " + t.getMessage());
+                Log.d("API MANAGER", "onFailure: " + t.getCause());
+                Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
+
+            }
+        });
+
     }
 
     public static void fetchNews(final OnNewsFetchedListener listener) {
@@ -330,5 +350,9 @@ public class ApiManager {
 
     public interface OnNewsAddedListener {
         void onNewsAdded(AddNewsResponse response);
+    }
+
+    public interface OnAuthCheckListener {
+        void onAuthCheck(Boolean response);
     }
 }

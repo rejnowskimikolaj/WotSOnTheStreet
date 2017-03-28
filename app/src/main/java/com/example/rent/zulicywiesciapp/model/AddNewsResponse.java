@@ -6,9 +6,9 @@ package com.example.rent.zulicywiesciapp.model;
 
 public class AddNewsResponse {
     private Status status;
-    private Integer id;
+    private Long id;
 
-    public AddNewsResponse(Status status, Integer id) {
+    public AddNewsResponse(Status status, Long id) {
         this.status = status;
         this.id = id;
     }
@@ -22,11 +22,11 @@ public class AddNewsResponse {
         this.status = status;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

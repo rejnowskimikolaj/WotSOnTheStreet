@@ -3,6 +3,7 @@ package com.example.rent.zulicywiesciapp.retrofit;
 
 import com.example.rent.zulicywiesciapp.model.AddNewsDTO;
 import com.example.rent.zulicywiesciapp.model.AddNewsResponse;
+import com.example.rent.zulicywiesciapp.model.AuthResponse;
 import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.AuthorList;
 import com.example.rent.zulicywiesciapp.model.Category;
@@ -68,5 +69,9 @@ public interface NewsApiClient {
             @Part("news") RequestBody news,
             @Part MultipartBody.Part image
     );
+
+    @GET("/api/auth")
+    Call<AuthResponse> checkAuth(@Header("Token") String token);
+
 
 }
