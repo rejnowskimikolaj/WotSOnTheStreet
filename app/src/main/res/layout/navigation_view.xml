@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:fitsSystemWindows="true"
-    android:paddingTop="24dp"
-    app:menu="@menu/activity_drawer">
+    android:paddingTop="24dp">
 
 </android.support.design.widget.NavigationView>

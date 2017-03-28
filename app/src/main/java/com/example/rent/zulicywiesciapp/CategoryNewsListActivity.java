@@ -88,8 +88,14 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        setDrawerLayout(navigationView);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+    }
+
+    private void setDrawerLayout(NavigationView nv){
+        nv.inflateMenu(R.menu.activity_main_drawer);
+
     }
 
     private void setRecyclerView(){

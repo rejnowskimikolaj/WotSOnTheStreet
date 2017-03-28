@@ -113,7 +113,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
         }
 
         private void setDividerColor(){
-            divider.setBackgroundColor(CategoryUtil.getIdOfColorFromCategoryId(newsItem.getCategories().get(0).getId(),context));
+            if(newsItem.getCategories()!=null && newsItem.getCategories().size()!=0){
+                divider.setBackgroundColor(CategoryUtil.getIdOfColorFromCategoryId(newsItem.getCategories().get(0).getId(),context));
+            }
         }
 
         public NewsItemHolder(View itemView) {

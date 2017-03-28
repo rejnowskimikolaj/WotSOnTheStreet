@@ -1,5 +1,6 @@
 package com.example.rent.zulicywiesciapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -16,12 +17,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 import com.example.rent.zulicywiesciapp.utils.CategoryUtil;
+import com.example.rent.zulicywiesciapp.utils.SessionManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CapsuleActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class CapsuleActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+                                                                    , ApiManager.OnAuthCheckListener{
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -38,6 +42,8 @@ public class CapsuleActivity extends AppCompatActivity implements NavigationView
     @BindView((R.id.fragment_holder))
     FrameLayout fragmentHolder;
 
+    ProgressDialog progress;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +51,7 @@ public class CapsuleActivity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_capsule);
 
         setViews();
-
-        startActivity(new Intent(this,LoginActivity.class));
-        finish();
+        checkIfLoggedIn();
     }
 
 
@@ -58,6 +62,12 @@ public class CapsuleActivity extends AppCompatActivity implements NavigationView
         setTabsAndNavigationView();
     }
 
+    private void checkIfLoggedIn(){
+
+        progress = ProgressDialog.show(this,"","",true);
+        SessionManager.checkIfLoggedIn(this);
+    }
+
     private void setTabsAndNavigationView(){
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_open, R.string.nav_close);
         drawerLayout.setDrawerListener(toggle);
@@ -66,6 +76,7 @@ public class CapsuleActivity extends AppCompatActivity implements NavigationView
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+        navigationView.inflateMenu(R.menu.activity_capsule_drawer);
     }
 
 
@@ -77,8 +88,26 @@ public class CapsuleActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
+        int itemIdid = menuItem.getItemId();
+        drawerLayout.closeDrawer(GravityCompat.START);
+        Intent intent=null;
+        switch(itemIdid){
+            case R.id.nav_home:
+                intent = new Intent(this,MainActivity.class);
+                break;
+            case R.id.nav_capsule:
+                intent = new Intent(this,CapsuleActivity.class);
+                break;
+            case R.id.nav_my_news:
+                intent = new Intent(this,MyNewsActivity.class);
+        }
+        if(intent!=null){
+            startActivity(intent);
+        }
+        return true;
+
     }
+
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -86,5 +115,19 @@ public class CapsuleActivity extends AppCompatActivity implements NavigationView
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onAuthCheck(Boolean response) {
+
+        if(progress!=null){
+            progress.dismiss();
+        }
+        if (!response) startLoginActivity();
+    }
+
+    private void startLoginActivity(){
+        startActivity(new Intent(this,LoginActivity.class));
+        finish();
     }
 }

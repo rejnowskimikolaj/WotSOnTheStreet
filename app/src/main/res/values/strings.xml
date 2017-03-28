@@ -31,6 +31,9 @@
     <string name="empty_login_error">Login cannot be empty</string>
     <string name="empty_password_error">Password cannot be empty</string>
     <string name="server_problem">Server encountered a problem</string>
+    <string name="nav_news">News</string>
+    <string name="my_news">My news</string>
+    <string name="add_new">Add new</string>
 
 
 </resources>

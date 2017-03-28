@@ -1,5 +1,6 @@
 package com.example.rent.zulicywiesciapp;
 
+import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -149,6 +150,8 @@ public class LoginActivity extends AppCompatActivity implements ApiManager.OnLog
     private void onLoggedIn(User user) {
         Toast.makeText(this,"Logged In, "+user.getLastname(),Toast.LENGTH_SHORT).show();
         SessionManager.getInstance().setUser(user);
+
+        startActivity(new Intent(this,CapsuleActivity.class));
 
     }
 
