@@ -114,6 +114,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(this,MainActivity.class));
             return true;
         }
+        else if(itemIdid==R.id.nav_capsule){
+            startActivity(new Intent(this,CapsuleActivity.class));
+            return true;
+        }
 
         Intent categoryActivity = new Intent(this,CategoryNewsListActivity.class);
         int categoryId=-1;
