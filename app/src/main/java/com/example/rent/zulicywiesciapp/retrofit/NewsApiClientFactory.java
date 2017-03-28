@@ -20,7 +20,7 @@ public class NewsApiClientFactory {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://news.dweb.pl/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(builder.build())
+//                .client(builder.build())
                 .build();
 
         return retrofit.create(NewsApiClient.class);
