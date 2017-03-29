@@ -1,9 +1,11 @@
 package com.example.rent.zulicywiesciapp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
+import android.support.v4.view.GravityCompat;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -49,7 +51,27 @@ public class MyNewsActivity extends AbstractNewsListActivity implements ApiManag
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
+        int itemIdid = menuItem.getItemId();
+        drawerLayout.closeDrawer(GravityCompat.START);
+        Intent intent = null;
+        switch (itemIdid) {
+            case R.id.nav_home:
+                intent = new Intent(this, MainActivity.class);
+                break;
+            case R.id.nav_capsule:
+                intent = new Intent(this, CapsuleActivity.class);
+                break;
+            case R.id.nav_my_news:
+                intent = new Intent(this, MyNewsActivity.class);
+                break;
+            case R.id.nav_add_new:
+                intent = new Intent(this,AddNewsActivity.class);
+        }
+        if (intent != null) {
+            startActivity(intent);
+        }
+        return true;
+
     }
 
     @Override

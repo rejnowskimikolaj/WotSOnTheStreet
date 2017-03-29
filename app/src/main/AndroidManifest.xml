@@ -27,7 +27,7 @@
             android:name=".LoginActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".MyNewsActivity" />
-        <activity android:name=".AbstractNewsListActivity"></activity>
+        <activity android:name=".AddNewsActivity" />
     </application>
 
 </manifest>

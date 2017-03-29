@@ -47,7 +47,6 @@ import static com.example.rent.zulicywiesciapp.model.Status.*;
 public class ApiManager {
 
     private static NewsApiClient newsApiClient = new NewsApiClientFactory().create();
-    private static String HTTP_IMG_DIR = "http://news.dweb.pl/resources/uploads/";
 
     public static void login(final Login login, final OnLoginListener listener) {
         Gson gson = new GsonBuilder().create();
@@ -155,14 +154,6 @@ public class ApiManager {
                 if (response.isSuccessful()) {
 
                     List<NewsItem> list = response.body().getNews();
-                    for(NewsItem n : list) {
-                        Log.e("---!!! URL IMG ", n.getImg_url().substring(0, 6));
-                        if(!(n.getImg_url().substring(0, 6).equals("http://"))) {
-                            n.setImg_url(HTTP_IMG_DIR + n.getImg_url());
-                            Log.e("---!!! NEW URL IMG ", n.getImg_url());
-
-                        }
-                    }
                     Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onNewsFetched(list);
                 }
@@ -190,12 +181,6 @@ public class ApiManager {
                 if (response.isSuccessful()) {
 
                     List<NewsItem> list = response.body().getNews();
-                    for(NewsItem n : list) {
-                        if(n.getImg_url() != null && !(n.getImg_url().substring(0, 7).equals("http://"))) {
-                            n.setImg_url(HTTP_IMG_DIR + n.getImg_url());
-
-                        }
-                    }
                     Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onNewsFetched(list);
                 }
@@ -217,9 +202,6 @@ public class ApiManager {
                 if (response.isSuccessful()) {
                     Log.d("!!! API DATA", response.body().toString());
                     NewsItem newsItem = response.body();
-                    if(!(newsItem.getImg_url().substring(0, 6).equals("http://"))) {
-                        newsItem.setImg_url(HTTP_IMG_DIR + newsItem.getImg_url());
-                    }
                     listener.onNewsItemFetched(newsItem);
 
                 }
@@ -239,15 +221,6 @@ public class ApiManager {
             public void onResponse(Call<Category> call, Response<Category> response) {
                 if(response.isSuccessful()) {
                     Log.d("!!! API DATA", response.body().toString());
-                    List<NewsItem> list = response.body().getNews();
-                    for(NewsItem n : list) {
-                        Log.e("---!!! URL IMG ", n.getImg_url().substring(0, 7));
-                        if(!(n.getImg_url().substring(0, 7).equals("http://"))) {
-                            n.setImg_url(HTTP_IMG_DIR + n.getImg_url());
-                            Log.e("---!!! URL IMG ", n.getImg_url());
-
-                        }
-                    }
                     Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onCategoryFetched(response.body());
 
