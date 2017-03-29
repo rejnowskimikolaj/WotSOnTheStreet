@@ -34,6 +34,12 @@
     <string name="nav_news">News</string>
     <string name="my_news">My news</string>
     <string name="add_new">Add new</string>
+    <string name="news_title">Title</string>
+    <string name="news_body">Content</string>
+    <string name="priority">Priority:</string>
+    <string name="priority_normal">Normal</string>
+    <string name="priority_high">High</string>
+    <string name="priority_breaking">Breaking News</string>
 
 
 </resources>

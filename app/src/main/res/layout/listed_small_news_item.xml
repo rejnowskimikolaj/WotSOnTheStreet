@@ -17,9 +17,9 @@
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/listed_news_item_title"
             android:layout_width="180dp"
-            android:layout_height="57dp"
-            android:maxLength="40"
-            android:text="this is title max 40"
+            android:layout_height="wrap_content"
+            android:maxLength="65"
+            android:text="this is title max 65"
             android:textAppearance="@style/ListedArticleTitleStyle" />
 
         <ImageView

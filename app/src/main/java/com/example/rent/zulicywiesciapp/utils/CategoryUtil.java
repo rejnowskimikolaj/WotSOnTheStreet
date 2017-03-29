@@ -20,6 +20,22 @@ public class CategoryUtil {
 
 
 
+    public static int getCategoryIdFromString(String category){
+        int id = 0;
+        switch (category){
+            case "Politics": id=POLITICS;
+                break;
+            case "Sport": id = SPORT;
+                break;
+            case "Economics": id = ECONOMICS;
+                break;
+            case "Art": id = ART;
+                break;
+            case "Technology": id = TECHNOLOGY;
+        }
+
+        return id;
+    }
     public static int getIdOfColorFromCategoryId(int idOfCategory,Context context){
 
         int colorId=ContextCompat.getColor(context, R.color.colorPrimary);
