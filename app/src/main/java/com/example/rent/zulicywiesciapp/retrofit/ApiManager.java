@@ -97,15 +97,15 @@ public class ApiManager {
     }
 
 
-    public static void addNews(String token, AddNewsDTO newsDTO, final OnNewsAddedListener listener) {
+    public static void addNews(String token, AddNewsDTO newsDTO,File fileToUpload, final OnNewsAddedListener listener) {
 
-        File file = new File(newsDTO.getImagePath());
+      //  File file = new File(newsDTO.getImagePath());
         Gson gson = new GsonBuilder().create();
         String news = gson.toJson(newsDTO);
 
         RequestBody newsPart = RequestBody.create(MultipartBody.FORM, news);
-        RequestBody filePart = RequestBody.create(MediaType.parse("image/*"), file);
-        MultipartBody.Part uploadFile = MultipartBody.Part.createFormData("file", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
+       // RequestBody filePart = RequestBody.create(MediaType.parse("image/*"), file);
+        MultipartBody.Part uploadFile = MultipartBody.Part.createFormData("file", fileToUpload.getName(), RequestBody.create(MediaType.parse("image/*"), fileToUpload));
         System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! multipartfile " + uploadFile.toString());
         newsApiClient.upload(token, newsPart, uploadFile).enqueue(new Callback<AddNewsResponse>() {
             @Override

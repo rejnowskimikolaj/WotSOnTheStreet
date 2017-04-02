@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -44,6 +45,12 @@ abstract public class AbstractCapsuleActivity extends AppCompatActivity implemen
         super.onCreate(savedInstanceState);
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_add_new_item_menu, menu);
+        return true;
+    }
 
     public void setViews() {
 

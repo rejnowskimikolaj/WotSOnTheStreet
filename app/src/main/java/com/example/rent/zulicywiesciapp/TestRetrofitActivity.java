@@ -105,7 +105,7 @@ public class TestRetrofitActivity extends AppCompatActivity implements ApiManage
 
         final File file = new File(uploadFilePath+uploadFileName);
         news.setImagePath(file.getAbsolutePath());
-        ApiManager.addNews(u.getToken(), news, TestRetrofitActivity.this);
+       // ApiManager.addNews(u.getToken(), news, TestRetrofitActivity.this);
 
 
     }
