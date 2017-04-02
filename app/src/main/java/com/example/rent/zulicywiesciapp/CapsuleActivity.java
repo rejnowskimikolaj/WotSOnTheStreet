@@ -27,6 +27,7 @@ import com.example.rent.zulicywiesciapp.utils.SessionManager;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -42,14 +43,22 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
 
     NewsAdapter adapter;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capsule);
         setViews();
-        setRecyclerView();
         checkIfLoggedIn();
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setRecyclerView();
 
     }
 
@@ -79,12 +88,16 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
     }
 
     private List<NewsItem> getSmallerNewsList(List<NewsItem> source){
-        List<NewsItem> smallerList = new ArrayList<>();
-        smallerList.add(source.get(source.size()-1));
-        for(int i=1;i<=maxAmountOfDisplayedAddedNewsItems;i++){
+        List<NewsItem> smallerList = new LinkedList<>();
 
-           //TODO: adding items to the smaller list
+        int counter = 1;
+        for(int i=source.size()-1;i>=0;i--){
+            if(counter>maxAmountOfDisplayedAddedNewsItems)break;
+
+            smallerList.add(source.get(i));
+            counter++;
         }
+
         return smallerList;
     }
 

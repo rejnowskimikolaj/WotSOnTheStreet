@@ -22,16 +22,20 @@ public class CategoryUtil {
 
     public static int getCategoryIdFromString(String category){
         int id = 0;
-        switch (category){
-            case "Politics": id=POLITICS;
-                break;
-            case "Sport": id = SPORT;
-                break;
-            case "Economics": id = ECONOMICS;
-                break;
-            case "Art": id = ART;
-                break;
-            case "Technology": id = TECHNOLOGY;
+        if(category.equals("Politics")){
+            id=POLITICS;
+        }
+        else if(category.equals("Sports")){
+            id = SPORT;
+        }
+        else if(category.equals("Economics")){
+            id = ECONOMICS;
+        }
+        else if(category.equals("Art")){
+            id = ART;
+        }
+        else if(category.equals("Technology")){
+            id = TECHNOLOGY;
         }
 
         return id;
