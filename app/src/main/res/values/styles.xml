@@ -37,4 +37,13 @@
         <item name="android:textColor">@color/toolbarTitleColor</item>
     </style>
 
+    <style name="capsuleMainTextStyle" parent="@android:style/TextAppearance">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/contentTextColor</item>
+    </style>
+
+
+
 </resources>

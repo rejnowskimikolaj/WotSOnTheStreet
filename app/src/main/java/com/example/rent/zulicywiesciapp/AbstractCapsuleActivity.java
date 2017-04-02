@@ -46,12 +46,6 @@ abstract public class AbstractCapsuleActivity extends AppCompatActivity implemen
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_add_new_item_menu, menu);
-        return true;
-    }
-
     public void setViews() {
 
         ButterKnife.bind(this);
@@ -61,7 +55,7 @@ abstract public class AbstractCapsuleActivity extends AppCompatActivity implemen
 
     public void checkIfLoggedIn() {
 
-        progress = ProgressDialog.show(this, "", "", true);
+        progress = ProgressDialog.show(this, getString(R.string.checkin_login_dialog), "", true);
         SessionManager.checkIfLoggedIn(this);
     }
 

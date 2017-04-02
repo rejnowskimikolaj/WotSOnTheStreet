@@ -8,7 +8,11 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +29,7 @@ import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.Status;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 import com.example.rent.zulicywiesciapp.utils.CategoryUtil;
+import com.example.rent.zulicywiesciapp.utils.PhotoCachingTask;
 import com.example.rent.zulicywiesciapp.utils.SessionManager;
 import com.squareup.picasso.Picasso;
 
@@ -41,7 +46,8 @@ import java.util.Set;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiManager.OnNewsAddedListener{
+public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiManager.OnNewsAddedListener
+                                                                        ,PhotoCachingTask.OnPictureCachedListener {
 
     private static final int REQUEST_GALLERY_IMAGE = 10;
     private static final int REQUEST_CAPTURE = 110 ;
@@ -78,7 +84,6 @@ public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiMana
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_news);
         setViews();
-        checkIfLoggedIn();
 
     }
 
@@ -88,6 +93,7 @@ public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiMana
         setImageView();
         setSeekBar();
         setCheckboxes();
+        setTextWatchers();
     }
 
     @Override
@@ -95,41 +101,78 @@ public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiMana
         toolbarTitle.setText(R.string.add_new);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_add_new_item_menu, menu);
+        return true;
+    }
+
     @OnClick(R.id.add_button)
     void onAddButtonClicked(){
 
-        SessionManager.checkIfLoggedIn(this);
-
-        uploadDialog.show(this,R.string.uploading+"","");
-        upload();
-
+        checkIfLoggedIn();
     }
 
-    private void upload(){
+    @Override
+    public void onAuthCheck(Boolean response) {
+        super.onAuthCheck(response);
+
+        continueAdding();
+    }
+
+    private void continueAdding(){
+        if(!areFieldsCorrect()) return;
+
+        uploadDialog=uploadDialog.show(this,getString(R.string.uploading_title),getString(R.string.uploading));
+        new PhotoCachingTask(this,this).execute(bitmap);
+    }
+
+
+    private boolean areFieldsCorrect(){
+        boolean correct = true;
+
+        String title = titleInput.getText().toString();
+        if (TextUtils.isEmpty(title)) {
+            titleLayout.setError(getString(R.string.empty_title_error));
+            correct = false;
+        }
+
+        String content = contentInput.getText().toString();
+        if (TextUtils.isEmpty(content)) {
+            contentLayout.setError(getString(R.string.empty_content_error));
+            correct = false;
+        }
+
+        if(bitmap==null) {
+            correct=false;
+            Toast.makeText(this,R.string.no_photo_error,Toast.LENGTH_SHORT).show();
+        }
+
+        return correct;
+    }
+
+
+    @Override
+    public void onPictureCached(File file) {
+
+        upload(file);
+    }
+
+    private void upload(File file){
         Set<Integer>  categorySet = categories.keySet();
         List<Integer> categoryList = new ArrayList<>();
 
         for(Integer i: categorySet){
             categoryList.add(i);
         }
-
-        File image = null;
-        try {
-            image = getCachedFileFromBitmap(bitmap);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
         AddNewsDTO dto = new AddNewsDTO(titleInput.getText().toString()
                 ,contentInput.getText().toString()
                 ,priority
                 ,"emptyPAth"
                 ,categoryList);
-        ApiManager.addNews(SessionManager.getInstance().getUser().getToken(),dto,image, this);
+        ApiManager.addNews(SessionManager.getInstance().getUser().getToken(),dto,file, this);
+
     }
-
-
     private void setSeekBar(){
 
         updatePriorityOutput();
@@ -241,21 +284,6 @@ public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiMana
 
     }
 
-    private File getCachedFileFromBitmap(Bitmap bitmap) throws IOException {
-        
-        File f = new File(getCacheDir(), "imageToUpload");
-        f.createNewFile();
-
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
-        byte[] bitmapdata = bos.toByteArray();
-
-        FileOutputStream fos = new FileOutputStream(f);
-        fos.write(bitmapdata);
-        fos.flush();
-        fos.close();
-        return f;
-    }
 
     private void updateImageView(Uri uri) {
 
@@ -289,6 +317,7 @@ public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiMana
 
     @Override
     public void onNewsAdded(AddNewsResponse response) {
+
         if(uploadDialog !=null) uploadDialog.dismiss();
 
         if(response.getStatus()== Status.UPLOAD_ERROR||response.getStatus()==Status.UNAUTHORISED){
@@ -319,6 +348,28 @@ public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiMana
         startActivityForResult(i,REQUEST_CAPTURE);
     }
 
+    private void setTextWatchers(){
+        setTextWatcher(titleInput,titleLayout);
+        setTextWatcher(contentInput,contentLayout);
+    }
+    private void setTextWatcher(final TextInputEditText editText, final TextInputLayout inputLayout) {
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (inputLayout.isErrorEnabled()) {
+                    inputLayout.setErrorEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+    }
 
 
 }

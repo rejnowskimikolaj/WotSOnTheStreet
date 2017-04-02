@@ -40,9 +40,15 @@
     <string name="priority_normal">Normal</string>
     <string name="priority_high">High</string>
     <string name="priority_breaking">Breaking News</string>
-    <string name="uploading">Hold on for a sec</string>
+    <string name="uploading">sending stuff to the headquarters..</string>
+    <string name="uploading_title">Patience</string>
     <string name="upload_error">Uploading error</string>
     <string name="upload_ok">Uploading successful! Thanks :)</string>
+    <string name="empty_title_error">Title cannot be empty</string>
+    <string name="empty_content_error">Content cannot be empty</string>
+    <string name="no_photo_error">Don\'t forget about the photo</string>
+    <string name="checkin_login_dialog">Authorizing..</string>
+    <string name="your_last_added">Your last added News</string>
 
 
 </resources>

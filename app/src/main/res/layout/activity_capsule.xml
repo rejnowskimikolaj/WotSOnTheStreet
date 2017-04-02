@@ -29,15 +29,15 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <FrameLayout
-            android:id="@+id/fragment_holder"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="text"
-                android:layout_height="wrap_content" />
-        </FrameLayout>
+       <android.support.v4.widget.NestedScrollView
+           app:layout_behavior="@string/appbar_scrolling_view_behavior"
+           android:fitsSystemWindows="true"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <include layout="@layout/your_last_added_layout"/>
+
+       </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>
 
     <include layout="@layout/navigation_view" />
