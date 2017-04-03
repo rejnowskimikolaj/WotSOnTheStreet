@@ -27,8 +27,10 @@
             android:name=".LoginActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".MyNewsActivity" />
-        <activity android:name=".AddNewsActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".AddNewsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

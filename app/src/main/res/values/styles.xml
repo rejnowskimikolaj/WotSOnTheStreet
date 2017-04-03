@@ -44,6 +44,12 @@
         <item name="android:textColor">@color/contentTextColor</item>
     </style>
 
+    <style name="user_data_line" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/app_icon_color</item>
+    </style>
+
 
 
 </resources>

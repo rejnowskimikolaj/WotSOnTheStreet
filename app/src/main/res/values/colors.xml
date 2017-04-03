@@ -2,6 +2,8 @@
 <resources>
     <color name="dividerColor">#b6b6b6</color>
     <color name="colorPrimary">#878787</color>
+    <color name="colorPrimaryLight">#93878787</color>
+
     <color name="colorSecondary">#5b5b5b</color>
     <color name="colorPrimaryDark">#404148</color>
     <color name="colorAccent">#FF4081</color>

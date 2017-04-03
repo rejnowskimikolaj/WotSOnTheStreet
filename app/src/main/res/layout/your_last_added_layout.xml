@@ -3,9 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <android.support.v7.widget.AppCompatTextView
-        android:textAppearance="@style/capsuleMainTextStyle"
-        android:textAlignment="center"
+        android:id="@+id/user_data_line_header"
         android:text="@string/your_last_added"
+        android:padding="5dp"
+        android:background="@color/colorPrimaryLight"
+        android:textAlignment="center"
+        android:textAppearance="@style/user_data_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <android.support.v7.widget.RecyclerView
