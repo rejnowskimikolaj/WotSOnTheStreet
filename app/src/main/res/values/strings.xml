@@ -49,6 +49,15 @@
     <string name="no_photo_error">Don\'t forget about the photo</string>
     <string name="checkin_login_dialog">Authorizing..</string>
     <string name="your_last_added">Your last added News</string>
+    <string name="passsword2">Repeat password</string>
+    <string name="firstName">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="register">Register</string>
+    <string name="not_exact_passes_error">Passwords are different</string>
+    <string name="empty_first_name_error">Field cannot be empty</string>
+    <string name="empty_field_error">Field cannot be empty</string>
+    <string name="login_unavailable">User already exists</string>
+    <string name="to_short_pass_error">At least 6 characters</string>
 
 
 </resources>

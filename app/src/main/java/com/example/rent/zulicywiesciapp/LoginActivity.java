@@ -52,9 +52,6 @@ public class LoginActivity extends AppCompatActivity implements ApiManager.OnLog
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setViews();
-
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-
     }
 
     private void setViews() {
@@ -121,6 +118,11 @@ public class LoginActivity extends AppCompatActivity implements ApiManager.OnLog
 
             tryLogin();
         }
+    }
+
+    @OnClick(R.id.register_button)
+    public void onRegisterButtonClicked(){
+        startActivity(new Intent(this,RegisterActivity.class));
     }
 
     private void tryLogin() {
