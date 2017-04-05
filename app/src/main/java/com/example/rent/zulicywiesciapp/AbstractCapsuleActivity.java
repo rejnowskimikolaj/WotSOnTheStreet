@@ -16,7 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
+import com.example.rent.zulicywiesciapp.model.Status;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 import com.example.rent.zulicywiesciapp.utils.SessionManager;
 
@@ -24,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 abstract public class AbstractCapsuleActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
-        , ApiManager.OnAuthCheckListener {
+        , ApiManager.OnAuthCheckListener,ApiManager.OnResultStatusListener {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -98,14 +100,20 @@ abstract public class AbstractCapsuleActivity extends AppCompatActivity implemen
                 intent = new Intent(this,AddNewsActivity.class);
                 break;
             case R.id.nav_logout:
-                SessionManager.logout();
+                logout();
                 intent = new Intent(this, MainActivity.class);
+                finish();
         }
         if (intent != null) {
             startActivity(intent);
         }
         return true;
 
+    }
+
+    public void logout(){
+        SessionManager.logout(this);
+        Toast.makeText(this,getString(R.string.logged_out),Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -124,6 +132,11 @@ abstract public class AbstractCapsuleActivity extends AppCompatActivity implemen
             progress.dismiss();
         }
         if (!response) startLoginActivity();
+    }
+
+    @Override
+    public void onDeleteResult(Status response) {
+
     }
 
     private void startLoginActivity() {

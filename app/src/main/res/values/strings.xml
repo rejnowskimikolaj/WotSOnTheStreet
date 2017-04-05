@@ -59,6 +59,7 @@
     <string name="login_unavailable">User already exists</string>
     <string name="to_short_pass_error">At least 6 characters</string>
     <string name="logout">Log out</string>
+    <string name="logged_out">Logged out. We\'re gonna miss you :(</string>
 
 
 </resources>
