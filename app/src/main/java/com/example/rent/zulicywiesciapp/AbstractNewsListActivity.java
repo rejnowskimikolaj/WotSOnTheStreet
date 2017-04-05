@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.example.rent.zulicywiesciapp.adapters.NewsAdapter;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
 
 import butterknife.BindView;

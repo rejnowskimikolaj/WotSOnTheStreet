@@ -60,6 +60,12 @@
     <string name="to_short_pass_error">At least 6 characters</string>
     <string name="logout">Log out</string>
     <string name="logged_out">Logged out. We\'re gonna miss you :(</string>
+    <string name="user">User</string>
+    <string name="last_login">Last login in</string>
+    <string name="no_news_added_yet">No news added yet</string>
+    <string name="nothing_to_display">Nothing to display</string>
+    <string name="something_went_wrong">Something went wrong.</string>
+    <string name="no_news">No news to display</string>
 
 
 </resources>

@@ -1,21 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+
+
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <include layout="@layout/user_data_line" android:id="@+id/user_data_name"/>
-        <include layout="@layout/user_data_line" android:id="@+id/user_data_login"/>
-        <include layout="@layout/user_data_line" android:id="@+id/user_data_last_login"/>
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/user_header"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryLight"
+            android:padding="5dp"
+            android:text="@string/user"
+            android:textAlignment="center"
+            android:textAppearance="@style/user_data_line" />
 
-
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/user_data_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textAppearance="@style/user_data_line"
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 
-</android.support.v7.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/login_header"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryLight"
+            android:padding="5dp"
+            android:text="@string/login"
+            android:textAlignment="center"
+            android:textAppearance="@style/user_data_line" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/user_data_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textAppearance="@style/user_data_line"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/last_login_header"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLight"
+            android:padding="5dp"
+            android:text="@string/last_login"
+            android:textAlignment="center"
+            android:textAppearance="@style/user_data_line" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/user_data_lastLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textAppearance="@style/user_data_line"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+
+</LinearLayout>
+

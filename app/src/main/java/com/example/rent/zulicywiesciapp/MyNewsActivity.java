@@ -9,10 +9,12 @@ import android.support.v4.view.GravityCompat;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.rent.zulicywiesciapp.adapters.NothingToLoadAdapter;
 import com.example.rent.zulicywiesciapp.exceptions.ApiConnectException;
 import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
+import com.example.rent.zulicywiesciapp.utils.NothingToDisplayMessage;
 import com.example.rent.zulicywiesciapp.utils.SessionManager;
 
 public class MyNewsActivity extends AbstractNewsListActivity implements ApiManager.OnAuthorFetchedListener {
@@ -81,8 +83,7 @@ public class MyNewsActivity extends AbstractNewsListActivity implements ApiManag
         }
 
         else{
-
-            Toast.makeText(this,"You have no news added :(",Toast.LENGTH_SHORT).show();
+            recyclerView.setAdapter(new NothingToLoadAdapter(NothingToDisplayMessage.NO_NEWS,this));
         }
 
     }

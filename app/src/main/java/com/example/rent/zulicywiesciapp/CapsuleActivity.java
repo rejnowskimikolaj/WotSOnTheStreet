@@ -1,45 +1,43 @@
 package com.example.rent.zulicywiesciapp;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 
+import com.example.rent.zulicywiesciapp.adapters.NewsAdapter;
+import com.example.rent.zulicywiesciapp.adapters.NothingToLoadAdapter;
 import com.example.rent.zulicywiesciapp.exceptions.ApiConnectException;
 import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
+import com.example.rent.zulicywiesciapp.model.User;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
-import com.example.rent.zulicywiesciapp.utils.CategoryUtil;
+import com.example.rent.zulicywiesciapp.utils.NothingToDisplayMessage;
 import com.example.rent.zulicywiesciapp.utils.SessionManager;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static com.example.rent.zulicywiesciapp.MainNewsListFragment.NEWS_ID;
 
 public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManager.OnAuthorFetchedListener,NewsAdapter.OnNewsListItemClickListener{
 
     private final int maxAmountOfDisplayedAddedNewsItems = 3;
+
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+
+    @BindView(R.id.user_data_login)
+    AppCompatTextView loginData;
+
+    @BindView(R.id.user_data_lastLogin)
+    AppCompatTextView lastLoginData;
+
+    @BindView(R.id.user_data_name)
+    AppCompatTextView userNameData;
 
     NewsAdapter adapter;
 
@@ -52,9 +50,17 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
         setViews();
         checkIfLoggedIn();
 
-
     }
-
+    private void setUserDataInFields(){
+        User user = SessionManager.getInstance().getUser();
+        if(user!=null){
+            userNameData.setText(user.getName()+" "+user.getLastname());
+            loginData.setText(user.getUsername());
+            if(user.getLastLogin()!=null){
+                lastLoginData.setText(user.getLastLogin().toString());
+            }
+        }
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -78,11 +84,16 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
     @Override
     public void onAuthorFetched(Author author) {
 
+
         if(author!=null){
             List<NewsItem> list = author.getNews();
             if(!list.isEmpty()) {
                 List<NewsItem> smallerList = getSmallerNewsList(list);
                 adapter.setNewsList(smallerList);
+            }
+            else {
+                recyclerView.setAdapter(new NothingToLoadAdapter(NothingToDisplayMessage.NO_NEWS,this));
+
             }
         }
     }
@@ -105,6 +116,7 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
     public void onAuthCheck(Boolean response) {
         super.onAuthCheck(response);
         if(response){
+            setUserDataInFields();
             if(isAuthor()){
                 getAuthorData();
             }
@@ -116,6 +128,8 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
     }
 
     private void displayNotAuthorYet() {
+        recyclerView.setAdapter(new NothingToLoadAdapter(NothingToDisplayMessage.NO_NEWS_ADDED_YET,this));
+
     }
 
     private boolean isAuthor() {

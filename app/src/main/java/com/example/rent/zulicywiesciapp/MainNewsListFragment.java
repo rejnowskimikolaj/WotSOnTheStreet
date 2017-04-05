@@ -10,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rent.zulicywiesciapp.model.FakeNewsListFactory;
+import com.example.rent.zulicywiesciapp.adapters.NewsAdapter;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
-import com.example.rent.zulicywiesciapp.model.Sort;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

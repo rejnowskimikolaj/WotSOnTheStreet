@@ -1,25 +1,18 @@
 package com.example.rent.zulicywiesciapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rent.zulicywiesciapp.NewsAdapter;
-import com.example.rent.zulicywiesciapp.NewsItemActivity;
-import com.example.rent.zulicywiesciapp.R;
+import com.example.rent.zulicywiesciapp.adapters.NewsAdapter;
 import com.example.rent.zulicywiesciapp.local.db.DbHelper;
 import com.example.rent.zulicywiesciapp.local.db.NewsItemEntity;
 import com.example.rent.zulicywiesciapp.model.FakeNewsListFactory;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
-import com.example.rent.zulicywiesciapp.model.Sort;
-import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 import com.example.rent.zulicywiesciapp.utils.EntityConverter;
 import com.j256.ormlite.dao.Dao;
 

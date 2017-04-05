@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.rent.zulicywiesciapp.adapters.NewsAdapter;
 import com.example.rent.zulicywiesciapp.model.Categories;
 import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
