@@ -250,8 +250,6 @@ public class ApiManager {
             @Override
             public void onResponse(Call<Category> call, Response<Category> response) {
                 if(response.isSuccessful()) {
-                    Log.d("!!! API DATA", response.body().toString());
-                    Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onCategoryFetched(response.body());
 
                 }

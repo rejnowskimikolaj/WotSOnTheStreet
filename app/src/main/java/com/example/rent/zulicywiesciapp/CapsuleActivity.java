@@ -48,9 +48,11 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capsule);
         setViews();
-        checkIfLoggedIn();
+       // checkIfLoggedIn();
 
     }
+
+
     private void setUserDataInFields(){
         User user = SessionManager.getInstance().getUser();
         if(user!=null){
@@ -64,6 +66,7 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
     @Override
     protected void onResume() {
         super.onResume();
+        checkIfLoggedIn();
         setRecyclerView();
 
     }

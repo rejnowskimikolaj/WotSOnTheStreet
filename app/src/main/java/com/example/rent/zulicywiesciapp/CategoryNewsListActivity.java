@@ -18,12 +18,14 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.rent.zulicywiesciapp.adapters.NewsAdapter;
+import com.example.rent.zulicywiesciapp.adapters.NothingToLoadAdapter;
 import com.example.rent.zulicywiesciapp.model.Categories;
 import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
 import com.example.rent.zulicywiesciapp.exceptions.ApiConnectException;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 import com.example.rent.zulicywiesciapp.utils.CategoryUtil;
+import com.example.rent.zulicywiesciapp.utils.NothingToDisplayMessage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -121,7 +123,13 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
 
     @Override
     public void onCategoryFetched(Category category) {
-        adapter.setNewsList(category.getNews());
+        if(category==null||category.getNews()==null || category.getNews().isEmpty()){
+            recyclerView.setAdapter(new NothingToLoadAdapter(NothingToDisplayMessage.NO_NEWS,this));
+        }
+        else{
+            adapter.setNewsList(category.getNews());
+
+        }
 
     }
 

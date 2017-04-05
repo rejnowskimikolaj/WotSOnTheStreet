@@ -39,8 +39,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/user_data_line_header"
+                    android:text="@string/welcome_capsule"
+                    android:padding="5dp"
+                    android:background="@color/colorPrimaryLight"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textAppearance="@style/user_data_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
                 <include layout="@layout/user_data_layout"/>
+                
                 <include layout="@layout/your_last_added_layout" />
 
             </LinearLayout>

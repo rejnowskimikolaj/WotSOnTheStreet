@@ -11,9 +11,11 @@
             android:padding="5dp"
             android:background="@color/colorPrimaryLight"
             android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="20sp"
             android:textAppearance="@style/user_data_line"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="60dp" />
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
