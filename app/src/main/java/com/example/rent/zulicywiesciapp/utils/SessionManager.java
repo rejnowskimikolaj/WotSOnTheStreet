@@ -36,8 +36,8 @@ public class SessionManager {
     }
 
 
-    public static void logout() {
+    public static void logout(ApiManager.OnResultStatusListener listener) {
 
-        ApiManager.
+        ApiManager.logout(user.getToken(),  listener);
     }
 }
