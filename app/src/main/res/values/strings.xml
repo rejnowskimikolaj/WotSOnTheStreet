@@ -58,6 +58,7 @@
     <string name="empty_field_error">Field cannot be empty</string>
     <string name="login_unavailable">User already exists</string>
     <string name="to_short_pass_error">At least 6 characters</string>
+    <string name="logout">Log out</string>
 
 
 </resources>

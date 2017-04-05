@@ -36,4 +36,8 @@ public class SessionManager {
     }
 
 
+    public static void logout() {
+
+        ApiManager.
+    }
 }

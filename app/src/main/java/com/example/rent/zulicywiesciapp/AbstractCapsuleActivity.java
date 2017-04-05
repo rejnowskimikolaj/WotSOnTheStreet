@@ -2,6 +2,7 @@ package com.example.rent.zulicywiesciapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInstaller;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
@@ -95,6 +96,10 @@ abstract public class AbstractCapsuleActivity extends AppCompatActivity implemen
                 break;
             case R.id.nav_add_new:
                 intent = new Intent(this,AddNewsActivity.class);
+                break;
+            case R.id.nav_logout:
+                SessionManager.logout();
+                intent = new Intent(this, MainActivity.class);
         }
         if (intent != null) {
             startActivity(intent);

@@ -154,7 +154,7 @@ public class ApiManager {
                 if (response.isSuccessful()) {
 
                     List<NewsItem> list = response.body().getNews();
-                    Log.d("!!! API DATA", response.body().getNews().get(0).toString());
+//                    Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onNewsFetched(list);
                 }
             }

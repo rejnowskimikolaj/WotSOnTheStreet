@@ -105,13 +105,30 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
     public void onAuthCheck(Boolean response) {
         super.onAuthCheck(response);
         if(response){
-            try {
-                ApiManager.getAuthor(SessionManager.getInstance().getUser().getAuthorID(),this);
-            } catch (ApiConnectException e) {
-                e.printStackTrace();
+            if(isAuthor()){
+                getAuthorData();
+            }
+            else {
+                displayNotAuthorYet();
             }
         }
 
+    }
+
+    private void displayNotAuthorYet() {
+    }
+
+    private boolean isAuthor() {
+        return SessionManager.getInstance().getUser().getAuthorID()!=null;
+    }
+
+    private void getAuthorData(){
+        try {
+
+            ApiManager.getAuthor(SessionManager.getInstance().getUser().getAuthorID(),this);
+        } catch (ApiConnectException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
