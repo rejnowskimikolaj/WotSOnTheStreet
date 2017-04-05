@@ -1,13 +1,8 @@
 package com.example.rent.zulicywiesciapp.retrofit;
 
-import android.content.Context;
-import android.media.Image;
-import android.net.Uri;
 import android.util.Log;
 
 import com.example.rent.zulicywiesciapp.exceptions.ApiConnectException;
-import com.example.rent.zulicywiesciapp.exceptions.NoUserException;
-import com.example.rent.zulicywiesciapp.exceptions.WrongPasswordException;
 import com.example.rent.zulicywiesciapp.model.AddNewsDTO;
 import com.example.rent.zulicywiesciapp.model.AddNewsResponse;
 import com.example.rent.zulicywiesciapp.model.AuthResponse;
@@ -15,7 +10,7 @@ import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.AuthorList;
 import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.CategoryList;
-import com.example.rent.zulicywiesciapp.model.DeleteResponse;
+import com.example.rent.zulicywiesciapp.model.StatusResponse;
 import com.example.rent.zulicywiesciapp.model.Login;
 import com.example.rent.zulicywiesciapp.model.LoginResponse;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
@@ -23,11 +18,8 @@ import com.example.rent.zulicywiesciapp.model.NewsItemList;
 import com.example.rent.zulicywiesciapp.model.Register;
 import com.example.rent.zulicywiesciapp.model.Sort;
 import com.example.rent.zulicywiesciapp.model.Status;
-import com.example.rent.zulicywiesciapp.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.util.List;
@@ -196,10 +188,10 @@ public class ApiManager {
 
     }
 
-    public static void deleteNews(String token, Long id, final OnDeleteResultListener listener) {
-        newsApiClient.deleteNews(token, id).enqueue(new Callback<DeleteResponse>() {
+    public static void deleteNews(String token, Long id, final OnResultStatusListener listener) {
+        newsApiClient.deleteNews(token, id).enqueue(new Callback<StatusResponse>() {
             @Override
-            public void onResponse(Call<DeleteResponse> call, Response<DeleteResponse> response) {
+            public void onResponse(Call<StatusResponse> call, Response<StatusResponse> response) {
                 if (response.isSuccessful()) {
                     listener.onDeleteResult(response.body().getStatus());
                 } else {
@@ -208,7 +200,26 @@ public class ApiManager {
             }
 
             @Override
-            public void onFailure(Call<DeleteResponse> call, Throwable t) {
+            public void onFailure(Call<StatusResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+    public static void logout(String token, final OnResultStatusListener listener) {
+        newsApiClient.logout(token).enqueue(new Callback<StatusResponse>() {
+            @Override
+            public void onResponse(Call<StatusResponse> call, Response<StatusResponse> response) {
+                if (response.isSuccessful()) {
+                    listener.onDeleteResult(response.body().getStatus());
+                } else {
+                    listener.onDeleteResult(Status.ERROR);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StatusResponse> call, Throwable t) {
 
             }
         });
@@ -348,7 +359,7 @@ public class ApiManager {
         void onAuthCheck(Boolean response);
     }
 
-    public interface OnDeleteResultListener {
+    public interface OnResultStatusListener {
         void onDeleteResult(Status response);
     }
 }

@@ -8,7 +8,7 @@ import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.AuthorList;
 import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.CategoryList;
-import com.example.rent.zulicywiesciapp.model.DeleteResponse;
+import com.example.rent.zulicywiesciapp.model.StatusResponse;
 import com.example.rent.zulicywiesciapp.model.Login;
 import com.example.rent.zulicywiesciapp.model.LoginResponse;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
@@ -17,7 +17,6 @@ import com.example.rent.zulicywiesciapp.model.Register;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -64,7 +63,10 @@ public interface NewsApiClient {
     Call<AddNewsResponse> addNews(@Header("Token") String token, @Body AddNewsDTO addNewsDTO);
 
     @GET("/api/delete")
-    Call<DeleteResponse> deleteNews(@Header("Token") String token, @Query("news_id") Long id);
+    Call<StatusResponse> deleteNews(@Header("Token") String token, @Query("news_id") Long id);
+
+    @GET("/api/logout")
+    Call<StatusResponse> logout(@Header("Token") String token);
 
     @Multipart
     @POST("/api/upload")
