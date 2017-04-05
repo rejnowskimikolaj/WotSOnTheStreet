@@ -8,6 +8,7 @@ import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.AuthorList;
 import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.CategoryList;
+import com.example.rent.zulicywiesciapp.model.DeleteResponse;
 import com.example.rent.zulicywiesciapp.model.Login;
 import com.example.rent.zulicywiesciapp.model.LoginResponse;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
@@ -61,6 +62,9 @@ public interface NewsApiClient {
     @POST("/api/add_news")
     @Headers({"Content-Type: application/json"})
     Call<AddNewsResponse> addNews(@Header("Token") String token, @Body AddNewsDTO addNewsDTO);
+
+    @GET("/api/delete")
+    Call<DeleteResponse> deleteNews(@Header("Token") String token, @Query("news_id") Long id);
 
     @Multipart
     @POST("/api/upload")

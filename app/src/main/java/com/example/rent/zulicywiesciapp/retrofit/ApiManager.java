@@ -15,6 +15,7 @@ import com.example.rent.zulicywiesciapp.model.Author;
 import com.example.rent.zulicywiesciapp.model.AuthorList;
 import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.CategoryList;
+import com.example.rent.zulicywiesciapp.model.DeleteResponse;
 import com.example.rent.zulicywiesciapp.model.Login;
 import com.example.rent.zulicywiesciapp.model.LoginResponse;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
@@ -195,6 +196,24 @@ public class ApiManager {
 
     }
 
+    public static void deleteNews(String token, Long id, final OnDeleteResultListener listener) {
+        newsApiClient.deleteNews(token, id).enqueue(new Callback<DeleteResponse>() {
+            @Override
+            public void onResponse(Call<DeleteResponse> call, Response<DeleteResponse> response) {
+                if (response.isSuccessful()) {
+                    listener.onDeleteResult(response.body().getStatus());
+                } else {
+                    listener.onDeleteResult(Status.ERROR);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DeleteResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
     public static void getNewsItem(Long id, final OnNewsItemFetchedListener listener) throws ApiConnectException {
         newsApiClient.getNewsItem(id).enqueue(new Callback<NewsItem>() {
             @Override
@@ -327,5 +346,9 @@ public class ApiManager {
 
     public interface OnAuthCheckListener {
         void onAuthCheck(Boolean response);
+    }
+
+    public interface OnDeleteResultListener {
+        void onDeleteResult(Status response);
     }
 }
