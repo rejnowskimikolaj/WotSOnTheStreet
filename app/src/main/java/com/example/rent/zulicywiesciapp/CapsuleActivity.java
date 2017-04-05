@@ -155,4 +155,9 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
         newsItemActivity.putExtra(NewsItemActivity.SOURCE,NewsItemActivity.NEWS_FROM_FEED);
         startActivity(newsItemActivity);
     }
+
+    @Override
+    public void onNewsListItemLongClick(NewsItem newsItem) {
+
+    }
 }

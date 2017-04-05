@@ -67,6 +67,9 @@
     <string name="something_went_wrong">Something went wrong.</string>
     <string name="no_news">No news to display</string>
     <string name="welcome_capsule">Welcome to your capsule</string>
+    <string name="delete_question">Do you want to delete this news?</string>
+    <string name="yes">Yeah</string>
+    <string name="news_deleted">News item deleted :/</string>
 
 
 </resources>

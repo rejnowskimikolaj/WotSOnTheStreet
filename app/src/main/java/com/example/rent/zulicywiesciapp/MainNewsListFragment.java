@@ -71,4 +71,9 @@ public class MainNewsListFragment extends android.support.v4.app.Fragment implem
         newsItemActivity.putExtra(NewsItemActivity.SOURCE,NewsItemActivity.NEWS_FROM_FEED);
         startActivity(newsItemActivity);
     }
+
+    @Override
+    public void onNewsListItemLongClick(NewsItem newsItem) {
+
+    }
 }

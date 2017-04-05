@@ -29,13 +29,11 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
 
             <LinearLayout
+                android:fitsSystemWindows="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -51,12 +49,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp" />
                 <include layout="@layout/user_data_layout"/>
-                
-                <include layout="@layout/your_last_added_layout" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:text="@string/your_last_added"
+                    android:padding="5dp"
+                    android:background="@color/colorPrimaryLight"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textAppearance="@style/user_data_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+                <android.support.v4.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include layout="@layout/your_last_added_layout" />
+
+                </android.support.v4.widget.NestedScrollView>
 
             </LinearLayout>
 
-        </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>
 
     <include layout="@layout/navigation_view" />

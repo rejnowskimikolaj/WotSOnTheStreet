@@ -143,6 +143,11 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
     }
 
     @Override
+    public void onNewsListItemLongClick(NewsItem newsItem) {
+
+    }
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemIdid = item.getItemId();
         drawerLayout.closeDrawer(GravityCompat.START);

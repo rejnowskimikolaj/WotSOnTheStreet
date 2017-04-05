@@ -28,7 +28,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
     public static final int FIRST_ON_PAGE=4;
     public static final int MAX_CONTENT_LENGTH=100;
 
-    /* added by md */
     public NewsAdapter(Context context,OnNewsListItemClickListener clickListener) {
         newsList = new ArrayList<>();
         this.context = context;
@@ -131,11 +130,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
                     clickListener.OnNewsListItemClicked(newsItem);
                 }
             });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    clickListener.onNewsListItemLongClick(newsItem);
+                    return true;
+                }
+            });
 
         }
     }
 
     public interface OnNewsListItemClickListener{
         void OnNewsListItemClicked(NewsItem newsItem);
+
+        void onNewsListItemLongClick(NewsItem newsItem);
     }
 }

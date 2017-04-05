@@ -103,4 +103,9 @@ public class MainNewsListOfflineFragment extends android.support.v4.app.Fragment
         newsItemActivity.putExtra(NewsItemActivity.SOURCE,NewsItemActivity.NEWS_FROM_LOCAL_DB);
         startActivity(newsItemActivity);
     }
+
+    @Override
+    public void onNewsListItemLongClick(NewsItem newsItem) {
+
+    }
 }
