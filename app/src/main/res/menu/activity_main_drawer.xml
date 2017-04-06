@@ -31,7 +31,7 @@
                 android:title="@string/art" />
             <item
                 android:id="@+id/nav_politics"
-                android:icon="@drawable/ic_sad"
+                android:icon="@drawable/ic_martini"
                 android:title="@string/politics" />
             <item
                 android:id="@+id/nav_technology"
