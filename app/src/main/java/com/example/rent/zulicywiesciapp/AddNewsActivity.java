@@ -140,6 +140,10 @@ public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiMana
             titleLayout.setError(getString(R.string.empty_title_error));
             correct = false;
         }
+        if(title.length()>65){
+            titleLayout.setError(getString(R.string.to_long_title));
+            correct = false;
+        }
 
         String content = contentInput.getText().toString();
         if (TextUtils.isEmpty(content)) {

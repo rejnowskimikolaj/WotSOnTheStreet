@@ -16,23 +16,23 @@ import java.util.List;
  * Created by User on 2017-04-06.
  */
 
-public class MyNewsAdapter extends NewsAdapter {
+public class MyNewsToDeleteAdapter extends NewsAdapter {
 
     OnMyNewsItemIconClickListener iconClickListener;
-    public MyNewsAdapter(Context context, OnNewsListItemClickListener clickListener,OnMyNewsItemIconClickListener iconClickListener) {
+    public MyNewsToDeleteAdapter(Context context, OnNewsListItemClickListener clickListener, OnMyNewsItemIconClickListener iconClickListener) {
         super(context, clickListener);
         this.iconClickListener = iconClickListener;
     }
 
-    public MyNewsAdapter(List<NewsItem> newsList, Context context,
-                         OnNewsListItemClickListener clickListener,OnMyNewsItemIconClickListener iconClickListener) {
+    public MyNewsToDeleteAdapter(List<NewsItem> newsList, Context context,
+                                 OnNewsListItemClickListener clickListener, OnMyNewsItemIconClickListener iconClickListener) {
         super(newsList, context, clickListener);
         this.iconClickListener= iconClickListener;
     }
 
     @Override
     public NewsItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-      View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listed_my_news_item, parent, false);
+      View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listed_my_news_to_delete_item, parent, false);
 
         return new MyNewsItemHolder(view);
     }

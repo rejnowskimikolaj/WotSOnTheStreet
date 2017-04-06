@@ -1,32 +1,22 @@
 package com.example.rent.zulicywiesciapp;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatDialog;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.rent.zulicywiesciapp.adapters.MyNewsAdapter;
+import com.example.rent.zulicywiesciapp.adapters.MyNewsToDeleteAdapter;
 import com.example.rent.zulicywiesciapp.adapters.NewsAdapter;
 import com.example.rent.zulicywiesciapp.adapters.NothingToLoadAdapter;
 import com.example.rent.zulicywiesciapp.exceptions.ApiConnectException;
 import com.example.rent.zulicywiesciapp.model.Author;
-import com.example.rent.zulicywiesciapp.model.Category;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
 import com.example.rent.zulicywiesciapp.model.Status;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
@@ -37,7 +27,7 @@ import com.example.rent.zulicywiesciapp.utils.SessionManager;
 import java.util.List;
 
 public class MyNewsActivity extends AbstractNewsListActivity implements ApiManager.OnAuthorFetchedListener
-                                                                        ,MyNewsAdapter.OnMyNewsItemIconClickListener,
+                                                                        ,MyNewsToDeleteAdapter.OnMyNewsItemIconClickListener,
                                                                         ApiManager.OnResultStatusListener{
 
     @Override
@@ -85,14 +75,14 @@ public class MyNewsActivity extends AbstractNewsListActivity implements ApiManag
 
     private void onActionDeleteNewsClicked() {
 
-        if(adapter instanceof MyNewsAdapter){
+        if(adapter instanceof MyNewsToDeleteAdapter){
             List<NewsItem> list =  adapter.getNewsList();
             adapter = new NewsAdapter(list,this,this);
             recyclerView.setAdapter(adapter);
        }
        else {
             List<NewsItem> list =  adapter.getNewsList();
-            adapter = new MyNewsAdapter(list,this,this,this);
+            adapter = new MyNewsToDeleteAdapter(list,this,this,this);
             recyclerView.setAdapter(adapter);
         }
     }

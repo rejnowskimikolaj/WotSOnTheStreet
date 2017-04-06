@@ -71,6 +71,7 @@
     <string name="yes">Yeah</string>
     <string name="news_deleted">News item deleted :/</string>
     <string name="delete_action">Delete news</string>
+    <string name="to_long_title">Title can\'t be longer than 65 characters</string>
 
 
 </resources>
