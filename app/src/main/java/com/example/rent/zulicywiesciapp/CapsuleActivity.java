@@ -16,8 +16,10 @@ import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
 import com.example.rent.zulicywiesciapp.utils.NothingToDisplayMessage;
 import com.example.rent.zulicywiesciapp.utils.SessionManager;
 
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 
@@ -59,7 +61,9 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
             userNameData.setText(user.getName()+" "+user.getLastname());
             loginData.setText(user.getUsername());
             if(user.getLastLogin()!=null){
-                lastLoginData.setText(user.getLastLogin().toString());
+                String weekDay =new SimpleDateFormat("EEEE", Locale.US).format(user.getLastLogin());
+
+                lastLoginData.setText(weekDay);
             }
         }
     }

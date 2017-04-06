@@ -6,12 +6,14 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -100,6 +103,7 @@ public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiMana
     void setToolbarTitle() {
         toolbarTitle.setText(R.string.add_new);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -326,6 +330,7 @@ public class AddNewsActivity extends AbstractCapsuleActivity  implements ApiMana
         else if (response.getStatus()==Status.OK){
             Toast.makeText(this,R.string.upload_ok,Toast.LENGTH_SHORT).show();
             finish();
+            startActivity(new Intent(this,MyNewsActivity.class));
         }
 
     }
