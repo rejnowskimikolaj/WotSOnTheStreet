@@ -32,9 +32,6 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    @BindView(R.id.user_data_login)
-    AppCompatTextView loginData;
-
     @BindView(R.id.user_data_lastLogin)
     AppCompatTextView lastLoginData;
 
@@ -59,7 +56,6 @@ public class CapsuleActivity extends AbstractCapsuleActivity implements ApiManag
         User user = SessionManager.getInstance().getUser();
         if(user!=null){
             userNameData.setText(user.getName()+" "+user.getLastname());
-            loginData.setText(user.getUsername());
             if(user.getLastLogin()!=null){
                 String weekDay =new SimpleDateFormat("EEEE", Locale.US).format(user.getLastLogin());
 

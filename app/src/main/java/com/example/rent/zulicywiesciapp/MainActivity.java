@@ -57,9 +57,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Deutschlander.otf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Asimov.otf");
         toolbarTitle.setTypeface(custom_font);
-        toolbarTitle.setTextSize(40);
+        toolbarTitle.setTextSize(30);
     }
 
     private void setTabsAndNavigationView(){
@@ -99,13 +99,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.test) {
-            startActivity(new Intent(this, TestRetrofitActivity.class));
-            return true;
+        if(id == R.id.action_about) {
+            startActivity(new Intent(this, AboutAppActivity.class));
         }
-        return super.onOptionsItemSelected(item);
-    }
+        else if(id==R.id.action_search){
 
+            startActivity(new Intent(this, SearchNewsActivity.class));
+
+        }
+        return true;
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
