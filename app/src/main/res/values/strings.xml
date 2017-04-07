@@ -75,6 +75,7 @@
     <string name="nav_login">Log in</string>
     <string name="about_app">about WotS</string>
     <string name="search">search</string>
+    <string name="enter_phrase">Enter phrase here</string>
 
 
 </resources>
