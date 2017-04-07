@@ -14,14 +14,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/MainNewsListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/MainNewsListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/SearchNewsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/SearchNewsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/utils/NewsListKeeper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/utils/NewsListKeeper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/CategoryNewsListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/CategoryNewsListActivity.java" />
     </list>
     <ignored path="ZUlicyWiesciApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,21 +54,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CategoryNewsListActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CategoryNewsListActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/CategoryNewsListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="79" column="3" selection-start-line="79" selection-start-column="3" selection-end-line="115" selection-end-column="5" />
+            <state relative-caret-position="228">
+              <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="121" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchNewsActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearchNewsActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/SearchNewsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+            <state relative-caret-position="133">
+              <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2337#2338#0" expanded="true" />
@@ -96,6 +89,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="385">
               <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="116" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -1965,7 +1968,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_sad.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/listed_small_news_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/retrofit/ApiManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/CategoryNewsListActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/MainNewsListOfflineFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_warning.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/my_news_item.xml" />
@@ -2003,6 +2005,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/SearchNewsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/CategoryNewsListActivity.java" />
       </list>
     </option>
   </component>
@@ -2252,7 +2255,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../IsItBanana" />
-    <property name="device.picker.selection" value="Nexus_5_API_24" />
+    <property name="device.picker.selection" value="3300a5b23a4b43c1" />
     <property name="VectorAssetImportPath" value="C:\" />
   </component>
   <component name="RecentsManager">
@@ -2680,7 +2683,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24432677" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24357034" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879046" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3192,14 +3195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/CategoryNewsListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="79" column="3" selection-start-line="79" selection-start-column="3" selection-end-line="115" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/utils/NewsListKeeper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -3211,14 +3206,6 @@
             <element signature="e#557#558#0" expanded="true" />
             <element signature="e#599#600#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3251,8 +3238,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/SearchNewsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+        <state relative-caret-position="133">
+          <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2337#2338#0" expanded="true" />
@@ -3261,6 +3248,22 @@
             <element signature="e#2833#2834#0" expanded="true" />
             <element signature="e#3670#3704#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="116" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rent/zulicywiesciapp/CategoryNewsListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="121" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -115,11 +115,11 @@ public class CategoryNewsListActivity extends AppCompatActivity implements ApiMa
         toolbarTitle.setText(CategoryUtil.getCategoryNameFromId(categoryId));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_activity_toolbar_menu, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.main_activity_toolbar_menu, menu);
+//        return true;
+//    }
 
     @Override
     public void onCategoryFetched(Category category) {
