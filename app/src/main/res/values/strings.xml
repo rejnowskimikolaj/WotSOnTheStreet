@@ -76,6 +76,7 @@
     <string name="about_app">about WotS</string>
     <string name="search">search</string>
     <string name="enter_phrase">Enter phrase here</string>
+    <string name="search_records">Search results:</string>
 
 
 </resources>

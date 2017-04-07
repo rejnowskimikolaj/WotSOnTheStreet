@@ -18,7 +18,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.rent.zulicywiesciapp.model.Categories;
+import com.example.rent.zulicywiesciapp.model.NewsItem;
 import com.example.rent.zulicywiesciapp.model.NewsItemList;
+import com.example.rent.zulicywiesciapp.utils.NewsListKeeper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.activity_main_viewPager)
     ViewPager viewPager;
 
+    public List<NewsItem> newsItemList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

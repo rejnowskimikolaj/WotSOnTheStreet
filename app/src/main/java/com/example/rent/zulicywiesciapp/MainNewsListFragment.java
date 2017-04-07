@@ -1,6 +1,7 @@
 package com.example.rent.zulicywiesciapp;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.rent.zulicywiesciapp.adapters.NewsAdapter;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
 import com.example.rent.zulicywiesciapp.retrofit.ApiManager;
+import com.example.rent.zulicywiesciapp.utils.NewsListKeeper;
 
 import java.util.List;
 
@@ -61,6 +63,8 @@ public class MainNewsListFragment extends android.support.v4.app.Fragment implem
     public void onNewsFetched(List<NewsItem> newsList) {
 
         adapter.setNewsList(newsList);
+        NewsListKeeper.getInstance().setList(newsList);
+
     }
 
     @Override

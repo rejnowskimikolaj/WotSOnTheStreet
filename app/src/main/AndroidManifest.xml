@@ -35,7 +35,9 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".AboutAppActivity" />
-        <activity android:name=".SearchNewsActivity"></activity>
+        <activity android:name=".SearchNewsActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>
