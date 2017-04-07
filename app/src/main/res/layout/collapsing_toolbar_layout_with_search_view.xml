@@ -16,10 +16,11 @@
         app:title="Siema"
         app:titleTextColor="@color/toolbarTitleColor">
 
-        <android.support.v7.widget.SearchView
+        <android.support.v7.widget.AppCompatEditText
+            android:imeOptions="actionSearch"
+            android:inputType="text"
             android:id="@+id/search_edit"
-            app:searchIcon="@null"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:gravity="start"
             android:hint="@string/enter_phrase"

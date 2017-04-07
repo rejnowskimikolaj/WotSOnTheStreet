@@ -14,7 +14,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.rent.zulicywiesciapp.adapters.NewsAdapter;
 import com.example.rent.zulicywiesciapp.model.NewsItem;
@@ -23,21 +28,18 @@ import com.example.rent.zulicywiesciapp.utils.CategoryUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SearchNewsActivity extends AppCompatActivity implements NewsAdapter.OnNewsListItemClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class SearchNewsActivity extends AppCompatActivity implements NewsAdapter.OnNewsListItemClickListener {
 
-    @BindView(R.id.activity_category_news_list_recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
     private NewsAdapter adapter;
-
-    @BindView(R.id.activity_category_news_list_drawer_layout)
-    DrawerLayout drawerLayout;
 
     @BindView((R.id.toolbar))
     Toolbar toolbar;
 
     @BindView((R.id.search_edit))
-    SearchView searchEdit;
+    AppCompatEditText searchEdit;
 
 
     @Override
@@ -53,30 +55,30 @@ public class SearchNewsActivity extends AppCompatActivity implements NewsAdapter
         ButterKnife.bind(this);
         setRecyclerView();
         setToolbar();
-        setTabsAndNavigationView();
         setSearchView();
     }
 
     private void setSearchView(){
 
-        searchEdit.setIconifiedByDefault(false);
+        searchEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    performSearch();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
-    private void setTabsAndNavigationView(){
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_open, R.string.nav_close);
-        drawerLayout.setDrawerListener(toggle);
-        toggle.syncState();
+    private void performSearch() {
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        setDrawerLayout(navigationView);
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setItemIconTintList(null);
+        Toast.makeText(this,"SEARCH: "+searchEdit.getText().toString(),Toast.LENGTH_SHORT).show();
     }
 
-    private void setDrawerLayout(NavigationView nv){
-        nv.inflateMenu(R.menu.activity_main_drawer);
 
-    }
+
 
     private void setRecyclerView(){
         recyclerView.setHasFixedSize(false);
@@ -88,6 +90,27 @@ public class SearchNewsActivity extends AppCompatActivity implements NewsAdapter
 
     private void setToolbar(){
         setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_return);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_search_toolbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.action_clean:
+                searchEdit.setText("");
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 
     @Override
@@ -98,10 +121,5 @@ public class SearchNewsActivity extends AppCompatActivity implements NewsAdapter
     @Override
     public void onNewsListItemLongClick(NewsItem newsItem) {
 
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
     }
 }
