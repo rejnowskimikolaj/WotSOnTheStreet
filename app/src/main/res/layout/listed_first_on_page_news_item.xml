@@ -17,18 +17,21 @@
 
 
     <android.support.v7.widget.AppCompatTextView
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:id="@+id/listed_news_item_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
         android:text="This is title"
+        android:textSize="21sp"
         android:textAppearance="@style/ListedArticleTitleStyle" />
 
     <android.support.v7.widget.AppCompatTextView
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:id="@+id/listed_news_item_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
         android:text="This is content blablabldajfjkdmalfja"
         android:textAppearance="@style/ListedArticleContentStyle" />
 

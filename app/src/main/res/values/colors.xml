@@ -18,12 +18,8 @@
     <color name="icons_color"> #ffffff</color>
     <color name="app_icon_color">#f5f5f5</color>
     <color name="myNews">#d9251dff</color>
-    <color name="addNew">#d9000000</color>
+    <color name="addNew">#e0212121</color>
     <color name="logout_color">#790909</color>
-
-
-
-
 
 
 </resources>
