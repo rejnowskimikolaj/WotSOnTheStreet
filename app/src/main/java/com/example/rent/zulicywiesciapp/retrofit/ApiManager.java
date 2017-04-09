@@ -59,9 +59,7 @@ public class ApiManager {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Log.d("API MANAGER", "onFailure: " + t.getMessage());
-                Log.d("API MANAGER", "onFailure: " + t.getCause());
-                Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
+                listener.onLogin(new LoginResponse(ERROR,null));
             }
         });
     }
@@ -82,9 +80,8 @@ public class ApiManager {
 
            @Override
            public void onFailure(Call<LoginResponse> call, Throwable t) {
-               Log.d("API MANAGER", "onFailure: " + t.getMessage());
-               Log.d("API MANAGER", "onFailure: " + t.getCause());
-               Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
+
+               listener.onLogin(new LoginResponse(ERROR,null));
            }
        });
     }
@@ -113,8 +110,7 @@ public class ApiManager {
             @Override
             public void onFailure(Call<AddNewsResponse> call, Throwable t) {
 
-                System.out.println("!~~!~!~!~!~!~!~!~!~!~!~!~!~!~! failed: " + t.getMessage());
-                t.printStackTrace();
+                listener.onNewsAdded(new AddNewsResponse(Status.UPLOAD_ERROR,0L));
 
             }
         });
@@ -130,9 +126,8 @@ public class ApiManager {
 
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
-                Log.d("API MANAGER", "onFailure: " + t.getMessage());
-                Log.d("API MANAGER", "onFailure: " + t.getCause());
-                Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
+
+                listener.onAuthCheck(false);
 
             }
         });
@@ -155,11 +150,6 @@ public class ApiManager {
             @Override
             public void onFailure(Call<NewsItemList> call, Throwable t) {
 
-                Log.d("API MANAGER", "onFailure: " + t.getMessage());
-                Log.d("API MANAGER", "onFailure: " + t.getCause());
-                Log.d("API MANAGER", "onFailure: " + t.getStackTrace());
-
-
 
             }
         });
@@ -174,7 +164,6 @@ public class ApiManager {
                 if (response.isSuccessful()) {
 
                     List<NewsItem> list = response.body().getNews();
-                    Log.d("!!! API DATA", response.body().getNews().get(0).toString());
                     listener.onNewsFetched(list);
                 }
             }
@@ -182,7 +171,6 @@ public class ApiManager {
             @Override
             public void onFailure(Call<NewsItemList> call, Throwable t) {
 
-                Log.e("API MANAGER", "onFailure: " + t.getMessage());
             }
         });
 
@@ -319,7 +307,6 @@ public class ApiManager {
 
     }
 
-//interface generyczny?
 
     public interface OnNewsFetchedListener{
         void onNewsFetched(List<NewsItem> newsList);
