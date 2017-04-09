@@ -24,6 +24,8 @@ public class User {
 
     private String token;
 
+    private Integer role;
+
 
     public User() {}
 
@@ -97,5 +99,13 @@ public class User {
                 ", authorID=" + authorID +
                 ", token='" + token + '\'' +
                 '}';
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
     }
 }
