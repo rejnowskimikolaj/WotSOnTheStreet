@@ -73,10 +73,12 @@
     <string name="delete_action">Delete news</string>
     <string name="to_long_title">Title can\'t be longer than 65 characters</string>
     <string name="nav_login">Log in</string>
-    <string name="about_app">about WotS</string>
+    <string name="about_app">About app</string>
     <string name="search">search</string>
     <string name="enter_phrase">Enter phrase here</string>
     <string name="search_records">Search results:</string>
+    <string name="about">Welcome to WotS on the Street -  a news application using her own RESTFul API. You can view news provided by the backend server application along with creating your own news and posting them. To do so, we have to trust you first. If you don\'t post anything related to cats or soccer, you are free to go. </string>
+    <string name="about_2">Project created in cooperation with Java Android course colleague using popular designing patterns and GIT workflow. Application uses token verification and saving to local SQLite database. Visual part designed according to material design principles.</string>
 
 
 </resources>
