@@ -11,27 +11,10 @@
         android:id="@+id/activity_news_item_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/activity_news_item_collapsing"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways">
-
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/activity_news_item_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="86dp"
-                app:layout_collapseMode="parallax"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-
-        </android.support.design.widget.CollapsingToolbarLayout>
+        <include layout="@layout/collapsing_toolbar_layout" />
 
 
     </android.support.design.widget.AppBarLayout>

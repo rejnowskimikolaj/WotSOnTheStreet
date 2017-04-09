@@ -57,7 +57,7 @@ public class NewsItemActivity extends AppCompatActivity implements ApiManager.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_item);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_news_item_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.setNavigationIcon(R.drawable.ic_return);
