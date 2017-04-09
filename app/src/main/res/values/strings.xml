@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">WotS</string>
-    <string name="app_name_long">WotS on the street</string>
+    <string name="app_name">Wots</string>
+    <string name="app_name_long">Wots on the street</string>
 
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Itaque hic ipse iam pridem est reiectus; Ita relinquet duas, de quibus etiam atque etiam consideret. Hosne igitur laudas et hanc eorum, inquam, sententiam sequi nos censes oportere? Cum audissem Antiochum, Brute, ut solebam, cum M.\n\nAt ille pellit, qui permulcet sensum voluptate. Ita enim vivunt quidam, ut eorum vita refellatur oratio. Contineo me ab exemplis. Non quaeritur autem quid naturae tuae consentaneum sit, sed quid disciplinae. Ac tamen hic mallet non dolere. Ita enim vivunt quidam, ut eorum vita refellatur oratio. Fortasse id optimum, sed ubi illud: Plus semper voluptatis?\n\nGerendus est mos, modo recte sentiat. Maximus dolor, inquit, brevis est.\n\nDuo Reges: constructio interrete. Murenam te accusante defenderem. Non quam nostram quidem, inquit Pomponius iocans; Non enim iam stirpis bonum quaeret, sed animalis. Nam illud vehementer repugnat, eundem beatum esse et multis malis oppressum. Nam, ut sint illa vendibiliora, haec uberiora certe sunt. Quod si ita se habeat, non possit beatam praestare vitam sapientia. Nemo nostrum istius generis asotos iucunde putat vivere. Ac tamen hic mallet non dolere. Sed emolumenta communia esse dicuntur, recte autem facta et peccata non habentur communia. At, illa, ut vobis placet, partem quandam tuetur, reliquam deserit.\n\nMihi enim erit isdem istis fortasse iam utendum. Inde sermone vario sex illa a Dipylo stadia confecimus. Cur ipse Pythagoras et Aegyptum lustravit et Persarum magos adiit? Sed quid sentiat, non videtis. Haec et tu ita posuisti, et verba vestra sunt.</string>
     <string name="nav_open">Open</string>
@@ -77,7 +77,7 @@
     <string name="search">search</string>
     <string name="enter_phrase">Enter phrase here</string>
     <string name="search_records">Search results:</string>
-    <string name="about">Welcome to WotS on the Street -  a news application using her own RESTFul API. You can view news provided by the backend server application along with creating your own news and posting them. To do so, we have to trust you first. If you don\'t post anything related to cats or soccer, you are free to go. </string>
+    <string name="about">Welcome to Wots on the Street -  a news application using her own RESTFul API. You can view news provided by the backend server application along with creating your own news and posting it. To do so, we have to trust you first. If you don\'t post anything related to cats or soccer, you are free to go. </string>
     <string name="about_2">Project created in cooperation with Java Android course colleague using popular designing patterns and GIT workflow. Application uses token verification and saving to local SQLite database. Visual part designed according to material design principles.</string>
 
 
