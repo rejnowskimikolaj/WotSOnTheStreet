@@ -5,7 +5,7 @@
         android:id="@+id/action_deleteNews"
         android:icon="@drawable/ic_delete_sweep"
         android:title="delete news"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
-
+    
 </menu>

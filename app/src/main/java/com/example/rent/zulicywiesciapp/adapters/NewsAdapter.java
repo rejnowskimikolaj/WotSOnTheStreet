@@ -148,7 +148,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemHolder
 
     public interface OnNewsListItemClickListener{
         void OnNewsListItemClicked(NewsItem newsItem);
-
         void onNewsListItemLongClick(NewsItem newsItem);
     }
 

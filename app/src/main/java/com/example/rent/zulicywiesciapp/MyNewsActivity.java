@@ -59,7 +59,10 @@ public class MyNewsActivity extends AbstractNewsListActivity implements ApiManag
     public void fetchNews() {
 
         try {
-            ApiManager.getAuthor(SessionManager.getInstance().getUser().getAuthorID(),this);
+            if(SessionManager.getInstance().getUser()!=null){
+                ApiManager.getAuthor(SessionManager.getInstance().getUser().getAuthorID(),this);
+
+            }
         } catch (ApiConnectException e) {
             e.printStackTrace();
         }
@@ -125,7 +128,6 @@ public class MyNewsActivity extends AbstractNewsListActivity implements ApiManag
     @Override
     public void onAuthorFetched(Author author) {
         if(author.getNews()!=null &&!author.getNews().isEmpty()){
-            //adapter.setNewsList(author.getNews());
             adapter = new NewsAdapter(author.getNews(),this,this);
             recyclerView.setAdapter(adapter);
         }
@@ -173,7 +175,7 @@ public class MyNewsActivity extends AbstractNewsListActivity implements ApiManag
         if(response==Status.UNAUTHORISED){
             startActivity(new Intent(this,LoginActivity.class));
         }
-        else if(response==Status.OK){
+        else if(response==Status.OK&&SessionManager.getInstance().getUser()!=null){
             Toast.makeText(this,getString(R.string.news_deleted),Toast.LENGTH_SHORT).show();
             fetchNews();
         }
